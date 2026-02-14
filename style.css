@@ -17,9 +17,13 @@
     scroll-behavior: smooth;
 }
 
+html {
+    background-color: var(--bg-color);
+}
+
 body {
     font-family: 'Outfit', sans-serif;
-    background-color: var(--bg-color);
+    background-color: transparent;
     color: var(--text-main);
     overflow-x: hidden;
     position: relative;
