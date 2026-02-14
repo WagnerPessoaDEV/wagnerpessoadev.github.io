@@ -1,6 +1,6 @@
 // --- 1. Efeito de Digitação (Typewriter) ---
 const textElement = document.getElementById('typewriter');
-const words = ["Full Stack", "Web", "Designer"];
+const words = ["Front-End", "Web", "Sites Responsivos, E-commerce, Portfólios Profissionais"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
