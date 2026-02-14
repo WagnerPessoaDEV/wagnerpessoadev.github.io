@@ -1,9 +1,10 @@
-// --- 1. Efeito de Digitação (Typewriter) ---
+// --- 1. Efeito de Digitação (Typewriter) - Otimizado ---
 const textElement = document.getElementById('typewriter');
 const words = ["Front-End", "Web", "E-commerce"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
+let typeTimeout = null;
 
 function type() {
     const currentWord = words[wordIndex];
@@ -16,18 +17,18 @@ function type() {
         charIndex++;
     }
 
-    let typeSpeed = isDeleting ? 50 : 150;
+    let typeSpeed = isDeleting ? 40 : 80;
 
     if (!isDeleting && charIndex === currentWord.length) {
-        typeSpeed = 2000; // Pausa no final da palavra
+        typeSpeed = 1500;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         wordIndex = (wordIndex + 1) % words.length;
-        typeSpeed = 500;
+        typeSpeed = 400;
     }
 
-    setTimeout(type, typeSpeed);
+    typeTimeout = setTimeout(type, typeSpeed);
 }
 
 document.addEventListener('DOMContentLoaded', type);
@@ -62,15 +63,17 @@ themeToggle.addEventListener('click', () => {
     themeToggle.textContent = isLightMode ? '☀️' : '🌙';
 });
 
-// --- 2. Scroll Reveal (Elementos aparecem ao rolar) ---
+// --- 2. Scroll Reveal (Elementos aparecem ao rolar) - Otimizado ---
 const observerOptions = {
-    threshold: 0.15
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
@@ -78,26 +81,39 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 
-// --- 3. Efeito 3D Tilt nos Cards (Vanilla JS puro) ---
+// --- 3. Efeito 3D Tilt nos Cards (Otimizado) ---
 const cards = document.querySelectorAll('.project-card');
+let tiltAnimationId = null;
 
 cards.forEach(card => {
+    let mouseX = 0, mouseY = 0;
+    let isHovering = false;
+    
+    card.addEventListener('mouseenter', () => {
+        isHovering = true;
+    });
+
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = ((y - centerY) / centerY) * -10; // Rotação max 10deg
-        const rotateY = ((x - centerX) / centerX) * 10;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        mouseX = e.clientX - rect.left;
+        mouseY = e.clientY - rect.top;
     });
 
     card.addEventListener('mouseleave', () => {
+        isHovering = false;
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+    });
+});
+
+function updateTilt() {
+    cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const event = new MouseEvent('update');
+        }
+    });
+    tiltAnimationId = requestAnimationFrame(updateTilt);
+}
     });
 });
 

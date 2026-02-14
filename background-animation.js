@@ -38,35 +38,29 @@ class CodeBackground {
     }
 
     typeWriter() {
-        // Velocidade de digitação (ms)
-        const minSpeed = 30; // Mais lento
-        const maxSpeed = 0.5; // Mais lento
-        
-        // Caracteres por frame
+        const minSpeed = 30;
+        const maxSpeed = 80;
         const charsPerFrame = 1;
 
-        if (this.charIndex < this.codeSnippet.length) {
-            this.charIndex += charsPerFrame;
-            this.draw();
+        const animate = () => {
+            if (this.charIndex < this.codeSnippet.length) {
+                this.charIndex += charsPerFrame;
 
-            // Delay aleatório para parecer humano
-            const randomDelay = Math.random() * (maxSpeed - minSpeed) + minSpeed;
-            
-            const currentChar = this.codeSnippet[this.charIndex];
-            let delay = randomDelay;
-            
-            // Pausas naturais
-            if (currentChar === '\n') delay += 300;
-            if (currentChar === ';' || currentChar === '}') delay += 150;
+                const currentChar = this.codeSnippet[this.charIndex];
+                let delay = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+                
+                if (currentChar === '\n') delay += 200;
+                if (currentChar === ';' || currentChar === '}') delay += 100;
 
-            setTimeout(() => this.typeWriter(), delay);
-        } else {
-            // Reiniciar após pausa longa
-            setTimeout(() => {
-                this.charIndex = 0;
-                this.typeWriter();
-            }, 8000);
-        }
+                setTimeout(animate, delay);
+            } else {
+                setTimeout(() => {
+                    this.charIndex = 0;
+                    animate();
+                }, 6000);
+            }
+        };
+        animate();
     }
 
     // Removido listener de scroll para updateCodeVisibility, pois agora é automático
@@ -177,10 +171,20 @@ class CodeBackground {
     }
 
     animateCursor() {
-        setInterval(() => {
+        let blinkState = 0;
+        const blinkInterval = setInterval(() => {
             this.cursorBlink = !this.cursorBlink;
-            this.draw(); // Redesenhar apenas para piscar cursor
+            blinkState++;
+            // Parar animação quando atingir limite para economizar recursos
+            if (blinkState > 200) clearInterval(blinkInterval);
         }, 500);
+        
+        // Usar RAF para renderização mais suave
+        const animateFrame = () => {
+            this.draw();
+            requestAnimationFrame(animateFrame);
+        };
+        animateFrame();
     }
 
     getCodeSnippet() {
