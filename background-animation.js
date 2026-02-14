@@ -40,7 +40,7 @@ class CodeBackground {
     typeWriter() {
         // Velocidade de digitação (ms)
         const minSpeed = 30; // Mais lento
-        const maxSpeed = 100; // Mais lento
+        const maxSpeed = 0.5; // Mais lento
         
         // Caracteres por frame
         const charsPerFrame = 1;
@@ -90,8 +90,9 @@ class CodeBackground {
         // this.ctx.fillStyle = '#050505';
         // this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
+        //começo da digitação
         let currentX = 20;
-        let currentY = 40;
+        let currentY = 100;
         let visibleText = this.codeSnippet.substring(0, this.charIndex);
         
         // Simular "rolagem" do terminal se o texto for muito longo
@@ -185,7 +186,7 @@ class CodeBackground {
     getCodeSnippet() {
         return `
 /* 
- * @WagnerPessoaDev SYSTEM INITIALIZATION 
+ * WagnerPessoaDev SYSTEM INITIALIZATION 
  * Loading core modules...
  */
 
@@ -273,7 +274,7 @@ class DigitalExperience extends Innovation {
     sendMessage(msg) {
         const mailer = new SecureMail();
         return mailer.send({
-            to: 'contact WagnerPessoa.me',
+            to: 'contato@wagnerpessoa.me',
             body: msg,
             priority: 'HIGH'
         });
