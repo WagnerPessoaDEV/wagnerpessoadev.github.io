@@ -186,7 +186,7 @@ class CodeBackground {
     getCodeSnippet() {
         return `
     /*
-     * Nossos Serviços São
+     * NOSSOS SERVIÇOS SÃO
      * Otimizados para MAXIMUM PERFORMANCE
      */
     
