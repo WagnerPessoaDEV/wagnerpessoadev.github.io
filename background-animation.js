@@ -185,54 +185,9 @@ class CodeBackground {
 
     getCodeSnippet() {
         return `
-/* 
- * WagnerPessoaDev SYSTEM INITIALIZATION 
- * Loading core modules...
- */
-
-import { Future } from 'WagnerPessoaDev/time';
-import { Innovation } from 'WagnerPessoaDev/core';
-import { Design } from 'WagnerPessoaDev/ui';
-
-class DigitalExperience extends Innovation {
-    constructor() {
-        super();
-        this.version = '2.0.0';
-        this.status = 'READY';
-    }
-
-    async initialize() {
-        console.log('Starting WagnerPessoaDev engines...');
-        
-        // Carregando interface neural
-        const ui = await Design.loadSystem({
-            theme: 'dark_glass',
-            animations: 'fluid',
-            responsiveness: 'adaptive'
-        });
-
-        // Conectando ao futuro
-        const connection = await Future.connect();
-        
-        if (connection.isStable()) {
-            this.renderHero();
-            this.startMagic();
-        }
-    }
-
-    renderHero() {
-        const hero = new HeroSection({
-            title: 'Transformamos Ideias',
-            subtitle: 'Realidade Digital',
-            cta: 'Start Project'
-        });
-        
-        return hero.mount('#app');
-    }
-
     /*
-     * Nossos Serviços
-     * Otimizados para performance máxima
+     * Nossos Serviços São
+     * Otimizados para MAXIMUM PERFORMANCE
      */
     
     getServices() {
@@ -299,8 +254,52 @@ class DigitalExperience extends Innovation {
             this.innovate();
         }
     }
-`;
+
+    /*
+     * Wagner Pessoa - Desenvolvedor Full
+     * Portfolio & Expertise
+     */
+    
+    getPortfolio() {
+        return {
+            developer: 'Wagner Pessoa',
+            email: 'contato@wagnerpessoa.me',
+            github: 'wagnerpessoadev',
+            expertise: ['JavaScript', 'React', 'Python', 'Web Design'],
+            specialties: ['Front-End Development', 'Performance Optimization', 'UI/UX Implementation'],
+            certifications: ['Problem Solver', 'Code Architect', 'Innovation Enthusiast']
+        };
     }
+
+    async buildProject(projectName) {
+        console.log(\`🚀 Building: \${projectName}\`);
+        
+        const steps = [
+            { step: 'Analyze Requirements', time: 100 },
+            { step: 'Design Architecture', time: 150 },
+            { step: 'Implement Features', time: 200 },
+            { step: 'Testing & QA', time: 100 },
+            { step: 'Deploy to Production', time: 50 }
+        ];
+
+        for (const task of steps) {
+            console.log(\`✓ \${task.step} - \${task.time}ms\`);
+            await new Promise(resolve => setTimeout(resolve, task.time));
+        }
+        
+        return { success: true, project: projectName, status: 'LIVE' };
+    }
+
+    collaborateWith(team) {
+        return {
+            team: team,
+            commitment: 'Excellence',
+            communication: 'Clear & Consistent',
+            delivery: 'On Time',
+            result: 'Exceptional Products'
+        };
+    }
+`;    }
 }
 
 // Inicializar
