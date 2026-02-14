@@ -189,9 +189,9 @@ class CodeBackground {
  * Loading core modules...
  */
 
-import { Future } from '@WagnerPessoaDev/time';
-import { Innovation } from '@WagnerPessoaDev/core';
-import { Design } from '@WagnerPessoaDev/ui';
+import { Future } from 'WagnerPessoaDev/time';
+import { Innovation } from 'WagnerPessoaDev/core';
+import { Design } from 'WagnerPessoaDev/ui';
 
 class DigitalExperience extends Innovation {
     constructor() {
@@ -201,7 +201,7 @@ class DigitalExperience extends Innovation {
     }
 
     async initialize() {
-        console.log('Starting @WagnerPessoaDev engines...');
+        console.log('Starting WagnerPessoaDev engines...');
         
         // Carregando interface neural
         const ui = await Design.loadSystem({
@@ -266,7 +266,7 @@ class DigitalExperience extends Innovation {
     }
 
     /*
-     * Contato
+     * Contato "contato@wagnerpessoa.me"
      * Estamos prontos para atender
      */
      
