@@ -186,7 +186,11 @@ class CodeBackground {
     getCodeSnippet() {
         return `
     /*
+<<<<<<< HEAD
      * NOSSOS SERVIÇOS SÃO
+=======
+     * Nossos Serviços São
+>>>>>>> 217769e (Personalização do snippet de código)
      * Otimizados para MAXIMUM PERFORMANCE
      */
     
