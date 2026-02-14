@@ -185,7 +185,7 @@ class CodeBackground {
     getCodeSnippet() {
         return `
 /* 
- * @WagmePessoaDe SYSTEM INITIALIZATION 
+ * @WagnerPessoaDev SYSTEM INITIALIZATION 
  * Loading core modules...
  */
 
