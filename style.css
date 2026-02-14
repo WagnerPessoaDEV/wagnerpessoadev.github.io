@@ -8,7 +8,7 @@
     --text-main: #ffffff;
     --text-muted: #a0a0a0;
     --gradient-main: linear-gradient(135deg, var(--primary), #00c3ff);
-    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito "bounce" */
 }
 
 /* Tema Claro */
@@ -46,44 +46,43 @@ body {
 .bg-blob {
     position: fixed;
     border-radius: 50%;
-    filter: blur(60px);
+    filter: blur(80px);
     z-index: -1;
-    opacity: 0.3;
-    animation: moveBlob 25s infinite alternate;
-    will-change: transform;
+    opacity: 0.4;
+    animation: moveBlob 20s infinite alternate;
 }
 .blob-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--secondary); }
 .blob-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: var(--primary); animation-delay: -5s; }
-.blob-3 { top: 40%; left: 40%; width: 300px; height: 300px; background: #7000ff; animation-duration: 28s; }
+.blob-3 { top: 40%; left: 40%; width: 300px; height: 300px; background: #7000ff; animation-duration: 25s; }
 
 /* Blobs no tema claro com opacidade reduzida */
 body.light-mode .bg-blob {
-    opacity: 0.12;
+    opacity: 0.15;
 }
 
 @keyframes moveBlob {
     0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(20px, 30px) scale(1.08); }
+    100% { transform: translate(30px, 50px) scale(1.1); }
 }
 
-/* --- GLOW ANIMATION OTIMIZADA --- */
+/* --- ANIMAÇÃO GLOW CONSTANTE --- */
 @keyframes glow {
     0%, 100% { 
         color: #f1fa8c;
-        text-shadow: 0 0 10px rgba(241, 250, 140, 0.6),
-                     0 0 20px rgba(0, 242, 234, 0.4);
+        text-shadow: 0 0 10px rgba(241, 250, 140, 0.8),
+                     0 0 20px rgba(0, 242, 234, 0.6);
     }
     50% { 
         color: #00f2ea;
-        text-shadow: 0 0 15px rgba(0, 242, 234, 0.6),
-                     0 0 30px rgba(0, 242, 234, 0.4);
+        text-shadow: 0 0 20px rgba(0, 242, 234, 0.8),
+                     0 0 40px rgba(0, 242, 234, 0.6),
+                     0 0 60px rgba(0, 242, 234, 0.4);
     }
 }
 
 .glow-text {
-    animation: glow 2.5s ease-in-out infinite;
+    animation: glow 2s ease-in-out infinite;
     font-weight: 700;
-    will-change: color, text-shadow;
 }
 
 /* --- TEMA TOGGLE --- */
@@ -300,28 +299,29 @@ nav {
     position: relative;
     display: flex;
     justify-content: center;
-    animation: float 8s ease-in-out infinite;
-    will-change: transform;
+    animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
 }
 
 .hero-img {
     width: 400px;
     height: 400px;
-    border-radius: 25% 75% 75% 25% / 25% 25% 75% 75%;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     object-fit: cover;
     border: 3px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(0, 242, 234, 0.2);
+    box-shadow: 0 0 40px rgba(0, 242, 234, 0.2);
+    animation: morph 8s ease-in-out infinite;
     z-index: 2;
 }
 
 @keyframes morph {
     0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
     100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }
 
@@ -336,11 +336,10 @@ nav {
     color: var(--primary);
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     z-index: 3;
-    will-change: transform;
 }
 
-.code-card.c1 { top: 10%; right: 10%; animation: float 7s infinite 1s; }
-.code-card.c2 { bottom: 10%; left: 0%; animation: float 9s infinite 2s; }
+.code-card.c1 { top: 10%; right: 10%; animation: float 5s infinite 1s; }
+.code-card.c2 { bottom: 10%; left: 0%; animation: float 7s infinite 2s; }
 
 /* --- SEÇÕES GERAIS --- */
 section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
@@ -396,14 +395,12 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     transition: var(--transition);
     position: relative;
     overflow: hidden;
-    contain: layout style paint;
-    will-change: transform, border-color;
 }
 
 .skill-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     border-color: var(--primary);
-    box-shadow: 0 10px 25px -10px rgba(0, 242, 234, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(0, 242, 234, 0.3);
 }
 
 .skill-card i {
@@ -412,12 +409,11 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     background: linear-gradient(45deg, var(--primary), #fff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: 0.3s;
-    will-change: transform;
+    transition: 0.4s;
 }
 
 .skill-card:hover i {
-    transform: scale(1.15) rotate(3deg);
+    transform: scale(1.2) rotate(5deg);
 }
 
 /* --- SERVICES CARDS --- */
@@ -439,8 +435,6 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     display: flex;
     flex-direction: column;
     align-items: center;
-    contain: layout style;
-    will-change: transform, border-color;
 }
 
 .service-card::before {
@@ -450,15 +444,15 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 242, 234, 0.08) 0%, transparent 70%);
-    transition: 0.3s;
+    background: radial-gradient(circle, rgba(0, 242, 234, 0.1) 0%, transparent 70%);
+    transition: 0.4s;
     opacity: 0;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     border-color: var(--primary);
-    box-shadow: 0 15px 35px -10px rgba(0, 242, 234, 0.3);
+    box-shadow: 0 15px 40px -10px rgba(0, 242, 234, 0.3);
 }
 
 .service-card:hover::before {
@@ -470,15 +464,14 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 .service-icon {
     width: 80px;
     height: 80px;
-    background: rgba(0, 242, 234, 0.08);
+    background: rgba(0, 242, 234, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 25px;
-    transition: 0.3s;
-    will-change: transform, background;
-}
+    transition: 0.4s;
+    }
 
 .service-icon i {
     font-size: 2.5rem;
@@ -488,8 +481,8 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 }
 
 .service-card:hover .service-icon {
-    background: rgba(0, 242, 234, 0.15);
-    transform: scale(1.05);
+    background: rgba(0, 242, 234, 0.2);
+    transform: scale(1.1);
 }
 
 /* --- TÍTULOS E LEGENDA (Ajuste de legibilidade) --- */
@@ -579,11 +572,9 @@ body.light-mode .section-header h2 {
     border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.2s cubic-bezier(0.23, 1, 0.320, 1);
+    transition: transform 0.1s; /* Rápido para o tilt JS */
     transform-style: preserve-3d;
     perspective: 1000px;
-    contain: layout style;
-    will-change: transform;
 }
 
 .card-inner {
@@ -599,7 +590,6 @@ body.light-mode .section-header h2 {
     border-radius: 15px;
     overflow: hidden;
     margin-bottom: 20px;
-    contain: layout style paint;
 }
 
 .project-img {
@@ -607,12 +597,11 @@ body.light-mode .section-header h2 {
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    transition: transform 0.4s ease-out;
-    will-change: transform;
+    transition: 0.5s;
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
 
 .tech-tags span {
