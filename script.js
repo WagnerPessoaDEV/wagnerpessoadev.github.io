@@ -1,6 +1,6 @@
 // --- 1. Efeito de Digitação (Typewriter) ---
 const textElement = document.getElementById('typewriter');
-const words = ["Front-End", "Web", "Sites Responsivos, E-commerce, Portfólios Profissionais"];
+const words = ["Front-End", "Web", "E-commerce"];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -32,6 +32,35 @@ function type() {
 
 document.addEventListener('DOMContentLoaded', type);
 
+
+// --- 1.5 TEMA DARK/LIGHT MODE ---
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+
+// Verifica preferência salva ou preferência do sistema
+const savedTheme = localStorage.getItem('theme') || 
+                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+// Define o tema inicial
+if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggle.textContent = '☀️';
+} else {
+    document.body.classList.remove('light-mode');
+    themeToggle.textContent = '🌙';
+}
+
+// Toggle do tema
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const isLightMode = document.body.classList.contains('light-mode');
+    
+    // Salva preferência
+    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    
+    // Muda o ícone
+    themeToggle.textContent = isLightMode ? '☀️' : '🌙';
+});
 
 // --- 2. Scroll Reveal (Elementos aparecem ao rolar) ---
 const observerOptions = {

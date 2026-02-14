@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wagner Pessoa | Dev Front-End</title>
+    <title>Wagner Pessoa | Front-End Developer</title>
     
-    <!-- Importando Fontes e Ícones do Google e FontAwesome -->
+    <!-- Google Fonts and FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Linkando o arquivo de CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Background Animado (Blobs) -->
+    <!-- Animated Background (Blobs) -->
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
     <div class="bg-blob blob-3"></div>
@@ -23,14 +22,14 @@
         <nav>
             <div class="logo">&lt;wagner<span>pessoa.me</span>/&gt;</div>
             <ul class="nav-links">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" title="Alternar tema">🌙</button>
-            <a href="index_en.html" class="lang-link" title="English" style="margin-left:8px">EN</a>
+            <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+            <a href="index.html" class="lang-link" title="Português" style="margin-left:8px">PT</a>
         </nav>
     </header>
 
@@ -39,24 +38,27 @@
         <section id="hero" class="hero">
             <div class="hero-content">
                 <div class="hero-text reveal">
-                    <h2>Olá,me chamo</h2> <div class="logo">&lt;Wagner<span>Pessoa</span>/&gt;</div><br><h2>sou um </h2>
-                    <h1>Desenvolvedor <span id="typewriter"></span><span class="typing-cursor"></span></h1>
-                    <p>Estudante de Análise e Desenvolvimento de Sistemas. Transformo café em código e ideias em interfaces modernas.</p>
+                    <h2>Hi, my name is</h2>
+                    <div class="logo">&lt;Wagner<span>Pessoa</span>/&gt;</div>
+                    <br>
+                    <h2>I'm a</h2>
+                    <h1>Developer <span id="typewriter"></span><span class="typing-cursor"></span></h1>
+                    <p>Student of Systems Analysis and Development. I turn coffee into code and ideas into modern interfaces.</p>
                     <div class="btn-group">
-                        <a href="#projects" class="btn btn-primary">Ver Projetos <i class="fas fa-arrow-right"></i></a>
-                        <a href="#contact" class="btn btn-secondary">Contato</a>
+                        <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                        <a href="#contact" class="btn btn-secondary">Contact</a>
                     </div>
                 </div>
 
                 <div class="hero-img-wrapper reveal">
                     <img src="imagens/WagnerPerfil.png" alt="Avatar" class="hero-img">
                     
-                    <!-- Cards de código flutuantes -->
+                    <!-- Floating code cards -->
                     <div class="code-card c1">
                         <span style="color:var(--secondary)">const</span> dev = {<br>
-                        &nbsp;&nbsp;titulo: <span style="color:#f1fa8c">"<span class="glow-text">Desenvolvedor</span>"</span>,<br>
+                        &nbsp;&nbsp;title: <span style="color:#f1fa8c">"<span class="glow-text">Developer</span>"</span>,<br>
                         &nbsp;&nbsp;stack: [<span style="color:#f1fa8c">'JS'</span>, <span style="color:#f1fa8c">'html'</span>],<br>
-                        &nbsp;&nbsp;status: <span style="color:#50fa7b">"🚀Evolução"</span><br>
+                        &nbsp;&nbsp;status: <span style="color:#50fa7b">"🚀Learning"</span><br>
                         };
                     </div>
                     <div class="code-card c2">
@@ -71,7 +73,7 @@
         <!-- Skills Section -->
         <section id="skills">
             <div class="section-header reveal" data-text="SKILLS">
-                <h2>Tecnologias</h2>
+                <h2>Technologies</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-card reveal">
@@ -87,11 +89,11 @@
                     <h3>JavaScript</h3>
                 </div>
                 <div class="skill-card reveal">
-                    <img src="imagens/github.png" alt="React.js" class="skill-img">
+                    <img src="imagens/github.png" alt="Github" class="skill-img">
                     <h3>Github</h3>
                 </div>
                 <div class="skill-card reveal">
-                    <img src="imagens/photoshop.png" alt="Node.js" class="skill-img">
+                    <img src="imagens/photoshop.png" alt="Photoshop" class="skill-img">
                     <h3>Photoshop</h3>
                 </div>
 
@@ -101,63 +103,63 @@
         <!-- Services Section -->
         <section id="services">
             <div class="section-header reveal" data-text="SERVICES">
-                <h2>Serviços</h2>
+                <h2>Services</h2>
             </div>
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <img src="imagens/rede.png" alt="Sites Profissionais" class="service-img">
+                        <img src="imagens/rede.png" alt="Professional Websites" class="service-img">
                     </div>
-                    <h3>Criação de Sites Profissionais</h3>
-                    <p>Desenvolvimento de sites modernos, responsivos e otimizados que representam sua marca com excelência e profissionalismo.</p>
+                    <h3>Professional Website Development</h3>
+                    <p>Modern, responsive and optimized websites that represent your brand with professionalism.</p>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <img src="imagens/E-comerce.png" alt="E-commerce" class="service-img">
                     </div>
-                    <h3>Lojas Virtuais (E-commerce)</h3>
-                    <p>Criação completa de plataformas de e-commerce com carrinho de compras, integração de pagamentos e gestão de produtos.</p>
+                    <h3>E-commerce Stores</h3>
+                    <p>Full e-commerce platforms with cart, payment integrations and product management.</p>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <img src="imagens/landing-page.png" alt="Landing Pages" class="service-img">
                     </div>
-                    <h3>Landing Pages para Negócios</h3>
-                    <p>Landing pages otimizadas para conversão, com design estratégico e chamadas à ação que atraem e convertem clientes.</p>
+                    <h3>Landing Pages</h3>
+                    <p>Conversion-focused landing pages with strategic design and clear calls to action.</p>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">
                         <img src="imagens/Redesign de Sites.png" alt="Redesign" class="service-img">
                     </div>
-                    <h3>Redesign de Sites</h3>
-                    <p>Modernização completa de sites antigos, melhorando visual, usabilidade, performance e experiência do usuário.</p>
+                    <h3>Website Redesign</h3>
+                    <p>Modernization of older sites improving visuals, usability and performance.</p>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <img src="imagens/Manutenção e Atualização.png" alt="Manutenção" class="service-img">
+                        <img src="imagens/Manutenção e Atualização.png" alt="Maintenance" class="service-img">
                     </div>
-                    <h3>Manutenção e Atualização</h3>
-                    <p>Suporte contínuo, atualizações de segurança, correção de bugs e manutenção para manter seu site sempre funcionando perfeitamente.</p>
+                    <h3>Maintenance & Updates</h3>
+                    <p>Continual support, security updates and bug fixes to keep your site running smoothly.</p>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <img src="imagens/marca-visual.png" alt="Identidade Visual" class="service-img">
+                        <img src="imagens/marca-visual.png" alt="Brand Identity" class="service-img">
                     </div>
-                    <h3>Identidade Visual</h3>
-                    <p>Desenvolvimento de identidade visual completa: logos, paleta de cores, tipografia e layout que representam sua marca.</p>
+                    <h3>Brand Identity</h3>
+                    <p>Logo, color palette, typography and layout to create a consistent brand image.</p>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">
-                        <img src="imagens/otimizacao-para-dispositivos-moveis.png" alt="Mobile" class="service-img">
+                        <img src="imagens/otimizacao-para-dispositivos-moveis.png" alt="Mobile Optimization" class="service-img">
                     </div>
-                    <h3>Otimização para Dispositivos Móveis</h3>
-                    <p>Design totalmente responsivo que garante perfeita experiência em smartphones, tablets e desktop com desempenho otimizado.</p>
+                    <h3>Mobile Optimization</h3>
+                    <p>Responsive design ensuring great experience across smartphones, tablets and desktop.</p>
                 </div>
             </div>
         </section>
@@ -165,58 +167,58 @@
         <!-- Projects Section -->
         <section id="projects">
             <div class="section-header reveal" data-text="WORK">
-                <h2>Projetos Recentes</h2>
+                <h2>Recent Projects</h2>
             </div>
             <div class="projects-grid">
                 
-                <!-- Projeto 1 -->
-                <div class="project-card reveal" data-url="https://example.com/toda-bela" data-year="2026" data-role="Frontend & UI" data-category="E-commerce" data-details="• Layout 100% responsivo (desktop, tablet e mobile)
-• Loja virtual integrada para venda de produtos, lingeries e itens de beleza
-• Galeria de trabalhos para apresentação de resultados reais
-• Seções institucionais (Nossa História, Serviços, Equipe)
-• Botões de contato rápido via WhatsApp e redes sociais">
+                <!-- Project 1 -->
+                <div class="project-card reveal" data-url="https://example.com/toda-bela" data-year="2026" data-role="Frontend & UI" data-category="E-commerce" data-details="• Fully responsive layout (desktop, tablet, mobile)
+• Integrated online store for product sales
+• Portfolio gallery to showcase real results
+• Institutional sections (About, Services, Team)
+• Quick contact buttons via WhatsApp and social media">
                     <div class="card-inner">
                         <div class="project-img-container">
-                            <img src="imagens/todabela (2).png" alt="Projeto 1" class="project-img">
+                            <img src="imagens/todabela (2).png" alt="Project 1" class="project-img">
                         </div>
                         <h3>Toda Bela</h3>
-                        <p style="margin: 10px 0; color: var(--text-muted);">Website completo para um salão de beleza, com foco na experiência do cliente...</p>
+                        <p style="margin: 10px 0; color: var(--text-muted);">Complete website for a beauty salon focused on customer experience...</p>
                         <div class="tech-tags">
                             <span>HTML</span><span>CSS</span><span>JS</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projeto 2 -->
-                <div class="project-card reveal" data-url="https://example.com/dashboard-admin" data-year="2026" data-role="Full Stack" data-details="O projeto foi desenvolvido com foco em:
-• Design moderno e profissional
-• Layout 100% responsivo (desktop, tablet e mobile)
-• Apresentação clara dos serviços de tecnologia digital
-• Integração com WhatsApp, Instagram e e-mail para atendimento rápido
-• Estrutura otimizada para melhorar a experiência do usuário e a conversão">
+                <!-- Project 2 -->
+                <div class="project-card reveal" data-url="https://example.com/dashboard-admin" data-year="2026" data-role="Full Stack" data-details="The project was developed focusing on:
+• Modern professional design
+• Fully responsive layout (desktop, tablet, mobile)
+• Clear presentation of digital services
+• Integration with WhatsApp, Instagram and email for fast support
+• Structure optimized for better user experience and conversion">
                     <div class="card-inner">
                         <div class="project-img-container">
-                            <img src="https://picsum.photos/seed/appdashboard/600/400" alt="Projeto 2" class="project-img">
+                            <img src="https://picsum.photos/seed/appdashboard/600/400" alt="Project 2" class="project-img">
                         </div>
                         <h3>StarCria</h3>
-                        <p style="margin: 10px 0; color: var(--text-muted);">Desenvolvimento de website institucional para empresa de tecnologia, com atuação em design digital, sistemas e aplicativos.</p>
+                        <p style="margin: 10px 0; color: var(--text-muted);">Corporate website development for a technology company offering digital design, systems and apps.</p>
                         <div class="tech-tags">
                             <span>React</span><span>JS</span><span>HTML</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projeto 3 -->
-                <div class="project-card reveal" data-url="https://example.com/app-ecommerce" data-year="2023" data-role="Mobile Dev" data-category="E-commerce" data-details="• Carrinho persistente
-• Checkout seguro integrado
+                <!-- Project 3 -->
+                <div class="project-card reveal" data-url="https://example.com/app-ecommerce" data-year="2023" data-role="Mobile Dev" data-category="E-commerce" data-details="• Persistent cart
+• Secure checkout
 • Push notifications
-• Analytics de uso">
+• Usage analytics">
                     <div class="card-inner">
                         <div class="project-img-container">
-                            <img src="https://picsum.photos/seed/mobileapp/600/400" alt="Projeto 3" class="project-img">
+                            <img src="https://picsum.photos/seed/mobileapp/600/400" alt="Project 3" class="project-img">
                         </div>
-                        <h3>App E-commerce</h3>
-                        <p style="margin: 10px 0; color: var(--text-muted);">Aplicativo de vendas com carrinho e integração de pagamentos.</p>
+                        <h3>E-commerce App</h3>
+                        <p style="margin: 10px 0; color: var(--text-muted);">Sales app with cart and payment integration.</p>
                         <div class="tech-tags">
                             <span>Flutter</span><span>Firebase</span>
                         </div>
@@ -227,7 +229,7 @@
         </section>
         <div id="project-modal" class="modal">
             <div class="modal-content">
-                <button class="modal-close" aria-label="Fechar">×</button>
+                <button class="modal-close" aria-label="Close">×</button>
                 <div class="modal-img-wrap">
                     <img class="modal-img" alt="">
                 </div>
@@ -247,19 +249,19 @@
                     </div>
 
                      <p class="modal-desc"></p>
-                     <h4 class="modal-subtitle">Destaques</h4>
+                     <h4 class="modal-subtitle">Highlights</h4>
                      <ul class="modal-features"></ul>
                      <div class="tech-tags modal-tags"></div>
-                    <a class="btn btn-primary modal-visit" target="_blank" rel="noopener">Visitar Projeto <i class="fas fa-external-link-alt"></i></a>
+                    <a class="btn btn-primary modal-visit" target="_blank" rel="noopener">Visit Project <i class="fas fa-external-link-alt"></i></a>
                 </div>
             </div>
         </div>
 
         <div id="city-modal" class="modal">
             <div class="modal-content">
-                <button class="modal-close" aria-label="Fechar">×</button>
+                <button class="modal-close" aria-label="Close">×</button>
                 <div class="modal-body">
-                    <h3 class="modal-title">Rio de Janeiro — Brasil</h3>
+                    <h3 class="modal-title">Rio de Janeiro — Brazil</h3>
                     <div class="video-grid">
                         <iframe class="city-video" src="" title="Copacabana Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         <iframe class="city-video" src="" title="Copacabana Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -273,8 +275,8 @@
         <section id="contact">
             <div class="contact-wrapper reveal">
                 <div class="contact-info">
-                    <h3>Vamos construir algo incrível?</h3>
-                    <p style="margin-bottom: 30px; color: var(--text-muted);">Estou disponível para oportunidades de estágio e projetos freelance.</p>
+                    <h3>Let's build something amazing?</h3>
+                    <p style="margin-bottom: 30px; color: var(--text-muted);">I'm available for internships and freelance projects.</p>
                     
                     <a class="contact-item" href="mailto:contato@wagnerpessoa.me">
                         <i class="fas fa-envelope"></i>
@@ -290,15 +292,15 @@
                     </a>
                     <button type="button" class="contact-item contact-location" data-city="Rio de Janeiro" data-video1="https://www.youtube.com/watch?v=8nLRIZhq_0Y" data-video2="https://www.youtube.com/watch?v=yg3AUjbzQ-Q" data-video3="https://www.youtube.com/watch?v=BQGmkdwlilw">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Rio de Janeiro, Brasil</span>
+                        <span>Rio de Janeiro, Brazil</span>
                     </button>
                 </div>
                 
                 <form>
-                    <input type="text" placeholder="Seu Nome">
-                    <input type="email" placeholder="Seu Email">
-                    <textarea rows="5" placeholder="Sua Mensagem"></textarea>
-                    <button class="btn btn-primary">Enviar Mensagem <i class="fas fa-paper-plane"></i></button>
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="5" placeholder="Your Message"></textarea>
+                    <button class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </section>
@@ -308,7 +310,7 @@
         <p>&copy; 2026 DevPortfolio.</p>
     </footer>
 
-    <!-- Linkando o arquivo de JavaScript -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
     <script src="smooth-scroll.js"></script>
     <script src="background-animation.js"></script>
