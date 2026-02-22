@@ -22,7 +22,7 @@
     <header>
         <nav>
             <div class="logo">&lt;wagner<span>pessoa.me</span>/&gt;</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="site-menu">
                 <li><a href="#hero">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -30,6 +30,11 @@
                 <li><a href="#projects">Projetos</a></li>
             </ul>
             <div class="nav-actions">
+                <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <button class="theme-toggle" id="themeToggle" title="Alternar tema">🌙</button>
                 <a href="index_en.html" class="lang-link" title="English">EN</a>
             </div>

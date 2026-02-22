@@ -186,3 +186,29 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
 
+// --- 4. Menu Mobile (Hamburger) ---
+const navToggle = document.getElementById('navToggle');
+const siteHeader = document.querySelector('header');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+function closeMobileMenu() {
+    if (!siteHeader || !navToggle) return;
+    siteHeader.classList.remove('nav-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+}
+
+if (navToggle && siteHeader) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = siteHeader.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+    });
+}
+
