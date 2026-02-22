@@ -212,3 +212,53 @@ if (navToggle && siteHeader) {
     });
 }
 
+// --- 5. Header oculto no mobile (revela ao tocar no topo) ---
+const mobileHeaderQuery = window.matchMedia('(max-width: 560px)');
+let headerHideTimer = null;
+
+function setHeaderHiddenState(shouldHide) {
+    if (!siteHeader) return;
+    if (shouldHide && !siteHeader.classList.contains('nav-open')) {
+        siteHeader.classList.add('mobile-hidden');
+    } else {
+        siteHeader.classList.remove('mobile-hidden');
+    }
+}
+
+function revealHeaderTemporarily() {
+    if (!siteHeader) return;
+    setHeaderHiddenState(false);
+    if (headerHideTimer) {
+        clearTimeout(headerHideTimer);
+    }
+    headerHideTimer = setTimeout(() => {
+        if (mobileHeaderQuery.matches && window.scrollY > 0) {
+            setHeaderHiddenState(true);
+        }
+    }, 2200);
+}
+
+function handleHeaderVisibility() {
+    if (!siteHeader) return;
+    if (!mobileHeaderQuery.matches) {
+        setHeaderHiddenState(false);
+        return;
+    }
+    if (window.scrollY === 0) {
+        setHeaderHiddenState(false);
+        return;
+    }
+    setHeaderHiddenState(true);
+}
+
+window.addEventListener('scroll', handleHeaderVisibility, { passive: true });
+window.addEventListener('touchstart', (event) => {
+    if (!mobileHeaderQuery.matches) return;
+    const touch = event.touches[0];
+    if (touch && touch.clientY <= 60) {
+        revealHeaderTemporarily();
+    }
+}, { passive: true });
+mobileHeaderQuery.addEventListener('change', handleHeaderVisibility);
+handleHeaderVisibility();
+

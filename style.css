@@ -122,17 +122,21 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 0;
+    padding: 12px 0;
     z-index: 1000;
     background: rgba(11, 13, 23, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
+    transition: transform 350ms ease, background 0.3s, border-color 0.3s;
 }
 
 body.light-mode header {
     background: rgba(255, 255, 255, 0.95);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+header.mobile-hidden {
+    transform: translateY(-110%);
 }
 
 nav {
@@ -144,7 +148,7 @@ nav {
         "left logo actions"
         "menu menu menu";
     align-items: center;
-    row-gap: 8px;
+    row-gap: 4px;
     padding: 0 20px;
 }
 
@@ -1017,6 +1021,11 @@ body.light-mode .section-header h2 {
 .contact-location:focus {
     outline: 2px solid var(--secondary);
     outline-offset: 4px;
+}
+
+.download-cv {
+    margin-top: 10px;
+    width: fit-content;
 }
 
 form input, form textarea {
