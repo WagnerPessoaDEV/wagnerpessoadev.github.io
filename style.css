@@ -208,9 +208,15 @@ nav {
     font-size: 4rem;
     line-height: 1.1;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #fff, #a5a5a5);
+    color: var(--text-main);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-title {
+    background: linear-gradient(90deg, #ffffff 0%, #5cc6ff 55%, #1aa7ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 16px rgba(26, 167, 255, 0.35);
 }
 
 #typewriter {
