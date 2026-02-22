@@ -2,7 +2,7 @@
 :root {
     /* Tema Escuro (padrão) */
     --bg-color: #0b1220;
-    --bg-gradient: linear-gradient(135deg, #05070d 0%, #0b0f1a 100%);
+    --bg-gradient: linear-gradient(135deg, #050607 0%, #0a1b2a 100%);
     --card-bg: rgba(255, 255, 255, 0.05);
     --primary: #00f2ea;     /* Ciano Neon */
     --secondary: #ff0055;   /* Rosa Neon */
@@ -15,7 +15,7 @@
 /* Tema Claro */
 body.light-mode {
     --bg-color: #f5f5f5;
-    --bg-gradient: linear-gradient(135deg, #f5f5f5 0%, #e2ecf7 100%);
+    --bg-gradient: linear-gradient(135deg, #ffffff 0%, #d9ecff 100%);
     --card-bg: rgba(0, 0, 0, 0.08);
     --primary: #0099cc;     /* Azul */
     --secondary: #cc3366;   /* Vermelho */
@@ -33,12 +33,19 @@ body.light-mode {
 html {
     background-color: var(--bg-color);
     background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     transition: background-color 0.5s ease;
 }
 
 body {
     font-family: 'Outfit', sans-serif;
-    background-color: transparent;
+    background-color: var(--bg-color);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--text-main);
     overflow-x: hidden;
     position: relative;
