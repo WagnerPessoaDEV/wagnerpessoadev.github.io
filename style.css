@@ -1046,6 +1046,13 @@ body.light-mode textarea::placeholder {
         align-items: center;
         gap: 14px;
         margin-top: 4px;
+        width: min(520px, 92vw);
+        padding: 16px 18px;
+        border-radius: 16px;
+        background: rgba(11, 13, 23, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(10px);
     }
     header.nav-open .nav-links {
         display: flex;
