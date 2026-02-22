@@ -113,12 +113,20 @@ const modalRole = modal.querySelector('.modal-role');
 const modalCategory = modal.querySelector('.modal-category');
 const modalFeatures = modal.querySelector('.modal-features');
 
+function normalizeProjectUrl(rawUrl) {
+    if (!rawUrl) return '#';
+    const trimmed = rawUrl.trim();
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    if (trimmed.startsWith('www.')) return `https://${trimmed}`;
+    return trimmed;
+}
+
 function openModal(card) {
     const title = card.querySelector('h3')?.textContent || '';
     const detailsRaw = card.dataset.details || card.querySelector('p')?.textContent || '';
     const img = card.querySelector('.project-img')?.src || '';
     const tags = Array.from(card.querySelectorAll('.tech-tags span')).map(el => el.textContent);
-    const url = card.dataset.url || '#';
+    const url = normalizeProjectUrl(card.dataset.url || '#');
     
     // Novos campos
     const year = card.dataset.year || '2023';
