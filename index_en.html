@@ -21,15 +21,23 @@
     <header>
         <nav>
             <div class="logo">&lt;wagner<span>pessoa.me</span>/&gt;</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="site-menu">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#projects">Projects</a></li>
             </ul>
-            <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
-            <a href="index.html" class="lang-link" title="Português" style="margin-left:8px">PT</a>
+            <div class="nav-actions">
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle theme">🌙</button>
+                <a href="index.html" class="lang-link" title="Portuguese">🇧🇷 PT</a>
+                <a href="index_en.html" class="lang-link" title="English" aria-current="page">🇺🇸 EN</a>
+            </div>
         </nav>
     </header>
 
@@ -38,10 +46,11 @@
         <section id="hero" class="hero">
             <div class="hero-content">
                 <div class="hero-text reveal">
-                    <h2>Hi, my name is</h2>
-                    <div class="logo">&lt;Wagner<span>Pessoa</span>/&gt;</div>
-                    <br>
-                    <h2>I'm a</h2>
+                    <div class="hero-intro">
+                        <h2>Hi, I'm</h2>
+                        <div class="logo hero-logo">&lt;Wagner<span>Pessoa</span>/&gt;</div>
+                        <h2>a</h2>
+                    </div>
                     <h1>Developer <span id="typewriter"></span><span class="typing-cursor"></span></h1>
                     <p>Student of Systems Analysis and Development. I turn coffee into code and ideas into modern interfaces.</p>
                     <div class="btn-group">
