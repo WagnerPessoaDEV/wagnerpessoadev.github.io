@@ -186,38 +186,3 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
 
-// --- 4. Modal para Cidade (Copacabana) ---
-const cityModal = document.getElementById('city-modal');
-const cityClose = cityModal ? cityModal.querySelector('.modal-close') : null;
-const cityVideos = cityModal ? cityModal.querySelectorAll('.city-video') : [];
-const locationBtn = document.querySelector('.contact-location');
-
-function openCityModal() {
-    if (!cityModal) return;
-    // Preenche vídeos a partir dos data-video* do botão
-    const v1 = locationBtn?.dataset.video1 || '';
-    const v2 = locationBtn?.dataset.video2 || '';
-    const v3 = locationBtn?.dataset.video3 || '';
-    const urls = [v1, v2, v3].filter(Boolean);
-    cityVideos.forEach((iframe, idx) => {
-        iframe.src = urls[idx] || urls[0] || '';
-    });
-    cityModal.classList.add('active');
-}
-
-function closeCityModal() {
-    if (!cityModal) return;
-    cityModal.classList.remove('active');
-    // Limpa src para parar reprodução
-    cityVideos.forEach(iframe => { iframe.src = ''; });
-}
-
-if (locationBtn) {
-    locationBtn.addEventListener('click', openCityModal);
-}
-if (cityClose) cityClose.addEventListener('click', closeCityModal);
-if (cityModal) {
-    cityModal.addEventListener('click', (e) => {
-        if (e.target === cityModal) closeCityModal();
-    });
-}
