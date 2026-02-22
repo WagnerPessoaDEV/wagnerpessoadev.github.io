@@ -116,6 +116,9 @@ const modalFeatures = modal.querySelector('.modal-features');
 function normalizeProjectUrl(rawUrl) {
     if (!rawUrl) return '#';
     const trimmed = rawUrl.trim();
+    if (/^https?:\/[^/]/i.test(trimmed)) {
+        return trimmed.replace(/^https?:\//i, match => `${match}/`);
+    }
     if (/^https?:\/\//i.test(trimmed)) return trimmed;
     if (trimmed.startsWith('www.')) return `https://${trimmed}`;
     return trimmed;
