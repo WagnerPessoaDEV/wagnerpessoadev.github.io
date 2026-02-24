@@ -563,6 +563,92 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     margin-bottom: 14px;
 }
 
+.about-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(0, 242, 234, 0.06);
+    border: 1px solid rgba(0, 242, 234, 0.15);
+    margin-bottom: 18px;
+}
+
+.about-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-main);
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.about-tab:hover {
+    border-color: rgba(0, 242, 234, 0.4);
+    color: var(--primary);
+}
+
+.about-tab.active {
+    background: var(--primary);
+    color: #000;
+    border-color: var(--primary);
+    box-shadow: 0 0 18px rgba(0, 242, 234, 0.35);
+}
+
+.about-panel {
+    display: none;
+}
+
+.about-panel.active {
+    display: block;
+}
+
+.about-education {
+    display: grid;
+    gap: 16px;
+}
+
+.edu-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.edu-title {
+    display: block;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 6px;
+}
+
+.edu-meta {
+    display: block;
+    color: var(--primary);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.edu-desc {
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.edu-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.edu-list li {
+    margin-bottom: 8px;
+}
+
 .about-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));

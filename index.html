@@ -88,17 +88,48 @@
             </div>
             <div class="about-grid">
                 <div class="about-card reveal">
-                    <h3>Quem sou</h3>
-                    <p>Desenvolvedor front-end em formação, apaixonado por criar interfaces modernas, rápidas e intuitivas.<br><br>
+                    <div class="about-tabs" role="tablist" aria-label="Sobre mim">
+                        <button class="about-tab active" role="tab" id="about-tab-quem" aria-selected="true" aria-controls="about-panel-quem" data-tab="quem">Quem sou</button>
+                        <button class="about-tab" role="tab" id="about-tab-formacao" aria-selected="false" aria-controls="about-panel-formacao" data-tab="formacao">Formação acadêmica</button>
+                    </div>
+                    <div class="about-panels">
+                        <div class="about-panel active" role="tabpanel" id="about-panel-quem" aria-labelledby="about-tab-quem" data-panel="quem">
+                            <h3>Quem sou</h3>
+                            <p>Desenvolvedor front-end em formação, apaixonado por criar interfaces modernas, rápidas e intuitivas.<br><br>
 Atualmente curso Análise e Desenvolvimento de Sistemas e construo minha experiência desenvolvendo projetos reais publicados na web.<br><br>
 Já criei sites completos para negócios locais, incluindo páginas institucionais e lojas online, aplicando boas práticas de responsividade, performance e usabilidade.<br><br>
 Tenho foco em código limpo, design funcional e experiências digitais que realmente geram valor.<br><br>
 Busco minha primeira oportunidade na área para evoluir, contribuir com projetos reais e crescer como desenvolvedor.</p>
-                    <div class="about-highlights">
-                        <div class="about-pill"><i class="fas fa-code"></i><span>Front-end e UI</span></div>
-                        <div class="about-pill"><i class="fas fa-bolt"></i><span>Performance e SEO</span></div>
-                        <div class="about-pill"><i class="fas fa-mobile-alt"></i><span>Design responsivo</span></div>
-                        <div class="about-pill"><i class="fas fa-pen-nib"></i><span>Identidade visual</span></div>
+                            <div class="about-highlights">
+                                <div class="about-pill"><i class="fas fa-code"></i><span>Front-end e UI</span></div>
+                                <div class="about-pill"><i class="fas fa-bolt"></i><span>Performance e SEO</span></div>
+                                <div class="about-pill"><i class="fas fa-mobile-alt"></i><span>Design responsivo</span></div>
+                                <div class="about-pill"><i class="fas fa-pen-nib"></i><span>Identidade visual</span></div>
+                            </div>
+                        </div>
+                        <div class="about-panel" role="tabpanel" id="about-panel-formacao" aria-labelledby="about-tab-formacao" data-panel="formacao">
+                            <h3>Formação acadêmica</h3>
+                            <div class="about-education">
+                                <div class="edu-item">
+                                    <span class="edu-title">Análise e Desenvolvimento de Sistemas</span>
+                                    <span class="edu-meta">Universidade Estácio de Sá · 2026 - 2028 (cursando)</span>
+                                    <p class="edu-desc">Foco em lógica de programação, estrutura de dados, banco de dados e desenvolvimento web.</p>
+                                </div>
+                                <div class="edu-item">
+                                    <span class="edu-title">Cursos complementares</span>
+                                    <ul class="edu-list">
+                                        <li>Fundamentos de Data Science e Inteligência Artificial - Data Science Academy</li>
+                                        <li>Suporte de Hardware e Atualização - Cisco Networking Academy</li>
+                                        <li>Segurança em Tecnologia da Informação - Fundação Bradesco</li>
+                                        <li>Fundamentos de TI: Hardware e Software - Fundação Bradesco</li>
+                                        <li>Criação de Sites: HTML, CSS e JavaScript - Fundação Bradesco</li>
+                                        <li>Introdução à Administração do Microsoft 365 e IA (AZ-900) - Ka Solution</li>
+                                        <li>Introdução à Cibersegurança - Cisco Networking Academy</li>
+                                        <li>Redes de Computadores - Cisco Networking Academy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="about-card about-stats reveal">

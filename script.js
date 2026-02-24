@@ -77,6 +77,34 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+// --- 2.5 Tabs do Sobre ---
+const aboutTabs = document.querySelectorAll('.about-tab');
+const aboutPanels = document.querySelectorAll('.about-panel');
+
+function setActiveAboutTab(tab) {
+    const target = tab.dataset.tab;
+    if (!target) return;
+
+    aboutTabs.forEach(btn => {
+        const isActive = btn === tab;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+        btn.setAttribute('tabindex', isActive ? '0' : '-1');
+    });
+
+    aboutPanels.forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.panel === target);
+    });
+}
+
+if (aboutTabs.length && aboutPanels.length) {
+    const initialTab = document.querySelector('.about-tab.active') || aboutTabs[0];
+    if (initialTab) setActiveAboutTab(initialTab);
+    aboutTabs.forEach(tab => {
+        tab.addEventListener('click', () => setActiveAboutTab(tab));
+    });
+}
+
 
 // --- 3. Efeito 3D Tilt nos Cards (Vanilla JS puro) ---
 const cards = document.querySelectorAll('.project-card');
