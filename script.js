@@ -138,8 +138,19 @@ const modalVisit = modal.querySelector('.modal-visit');
 const modalClose = modal.querySelector('.modal-close');
 const modalYear = modal.querySelector('.modal-year');
 const modalRole = modal.querySelector('.modal-role');
-const modalCategory = modal.querySelector('.modal-category');
+const modalRoleIcon = modal.querySelector('.modal-role-icon');
 const modalFeatures = modal.querySelector('.modal-features');
+
+function getRoleIconClass(role) {
+    const normalized = (role || '').toLowerCase();
+
+    if (/cyber|security|seguran/.test(normalized)) return 'fa-shield-halved';
+    if (/front|ui|ux|design/.test(normalized)) return 'fa-code';
+    if (/full stack|backend|back-end|api|server/.test(normalized)) return 'fa-laptop-code';
+    if (/mobile|android|ios/.test(normalized)) return 'fa-mobile-screen-button';
+
+    return 'fa-user-tag';
+}
 
 function normalizeProjectUrl(rawUrl) {
     if (!rawUrl) return '#';
@@ -162,8 +173,6 @@ function openModal(card) {
     // Novos campos
     const year = card.dataset.year || '2023';
     const role = card.dataset.role || 'Desenvolvedor';
-    const category = card.dataset.category || '';
-
     modalTitle.textContent = title;
     if (/[;\n•]/.test(detailsRaw)) {
         const lines = detailsRaw.split(/;|\n|•/).map(s => s.trim()).filter(Boolean);
@@ -189,10 +198,8 @@ function openModal(card) {
     
     if (modalYear) modalYear.textContent = year;
     if (modalRole) modalRole.textContent = role;
-    if (modalCategory) {
-        modalCategory.textContent = category;
-        const categoryItem = modalCategory.parentElement;
-        if (categoryItem) categoryItem.style.display = category ? '' : 'none';
+    if (modalRoleIcon) {
+        modalRoleIcon.className = `fas modal-role-icon ${getRoleIconClass(role)}`;
     }
 
     modal.classList.add('active');
