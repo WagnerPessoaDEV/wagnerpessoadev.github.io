@@ -133,12 +133,14 @@ const modal = document.getElementById('project-modal');
 const modalTitle = modal.querySelector('.modal-title');
 const modalDesc = modal.querySelector('.modal-desc');
 const modalImg = modal.querySelector('.modal-img');
+const modalVideo = modal.querySelector('.modal-video');
 const modalTags = modal.querySelector('.modal-tags');
 const modalVisit = modal.querySelector('.modal-visit');
 const modalClose = modal.querySelector('.modal-close');
 const modalYear = modal.querySelector('.modal-year');
 const modalRole = modal.querySelector('.modal-role');
 const modalRoleIcon = modal.querySelector('.modal-role-icon');
+const modalCategory = modal.querySelector('.modal-category');
 const modalFeatures = modal.querySelector('.modal-features');
 
 function getRoleIconClass(role) {
@@ -166,13 +168,17 @@ function normalizeProjectUrl(rawUrl) {
 function openModal(card) {
     const title = card.querySelector('h3')?.textContent || '';
     const detailsRaw = card.dataset.details || card.querySelector('p')?.textContent || '';
-    const img = card.querySelector('.project-img')?.src || '';
+    const cardImage = card.querySelector('.project-img-container img');
+    const cardVideo = card.querySelector('.project-img-container video');
+    const videoSource = cardVideo?.querySelector('source')?.src || cardVideo?.currentSrc || cardVideo?.src || '';
+    const imageSource = cardImage?.src || card.querySelector('.project-img')?.src || '';
     const tags = Array.from(card.querySelectorAll('.tech-tags span')).map(el => el.textContent);
     const url = normalizeProjectUrl(card.dataset.url || '#');
     
     // Novos campos
     const year = card.dataset.year || '2023';
     const role = card.dataset.role || 'Desenvolvedor';
+    const category = card.dataset.category || '';
     modalTitle.textContent = title;
     if (/[;\n•]/.test(detailsRaw)) {
         const lines = detailsRaw.split(/;|\n|•/).map(s => s.trim()).filter(Boolean);
@@ -180,7 +186,25 @@ function openModal(card) {
     } else {
         modalDesc.textContent = detailsRaw;
     }
-    modalImg.src = img;
+    if (videoSource && modalVideo) {
+        modalVideo.src = videoSource;
+        modalVideo.style.display = 'block';
+        modalImg.style.display = 'none';
+        modalImg.removeAttribute('src');
+
+        const playPromise = modalVideo.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {});
+        }
+    } else {
+        modalImg.src = imageSource;
+        modalImg.style.display = 'block';
+        if (modalVideo) {
+            modalVideo.pause();
+            modalVideo.removeAttribute('src');
+            modalVideo.style.display = 'none';
+        }
+    }
     modalTags.innerHTML = tags.map(t => `<span>${t}</span>`).join('');
     const feats = (card.dataset.features || '').split(';').map(s => s.trim()).filter(Boolean);
     if (modalFeatures) {
@@ -198,6 +222,7 @@ function openModal(card) {
     
     if (modalYear) modalYear.textContent = year;
     if (modalRole) modalRole.textContent = role;
+    if (modalCategory) modalCategory.textContent = category;
     if (modalRoleIcon) {
         modalRoleIcon.className = `fas modal-role-icon ${getRoleIconClass(role)}`;
     }
@@ -206,6 +231,10 @@ function openModal(card) {
 }
 
 function closeModal() {
+    if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+    }
     modal.classList.remove('active');
 }
 
