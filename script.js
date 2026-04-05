@@ -35,32 +35,32 @@ document.addEventListener('DOMContentLoaded', type);
 
 // --- 1.5 TEMA DARK/LIGHT MODE ---
 const themeToggle = document.getElementById('themeToggle');
-const htmlElement = document.documentElement;
 
-// Verifica preferência salva ou preferência do sistema
-const savedTheme = localStorage.getItem('theme') || 
-                   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+function applyTheme(theme) {
+    const isLightMode = theme === 'light';
+    document.body.classList.toggle('light-mode', isLightMode);
 
-// Define o tema inicial
-if (savedTheme === 'light') {
-    document.body.classList.add('light-mode');
-    themeToggle.textContent = '☀️';
-} else {
-    document.body.classList.remove('light-mode');
-    themeToggle.textContent = '🌙';
+    if (themeToggle) {
+        const isDarkMode = !isLightMode;
+        themeToggle.checked = isDarkMode;
+        themeToggle.setAttribute('aria-checked', String(isDarkMode));
+    }
 }
 
+// Verifica preferência salva ou preferência do sistema
+const savedTheme = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+applyTheme(savedTheme);
+
 // Toggle do tema
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light-mode');
-    const isLightMode = document.body.classList.contains('light-mode');
-    
-    // Salva preferência
-    localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
-    
-    // Muda o ícone
-    themeToggle.textContent = isLightMode ? '☀️' : '🌙';
-});
+if (themeToggle) {
+    themeToggle.addEventListener('change', () => {
+        const newTheme = themeToggle.checked ? 'dark' : 'light';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+}
 
 // --- 2. Scroll Reveal (Elementos aparecem ao rolar) ---
 const observerOptions = {

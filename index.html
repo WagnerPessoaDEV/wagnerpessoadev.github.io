@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -36,9 +36,32 @@
                     <span></span>
                     <span></span>
                 </button>
-                <button class="theme-toggle" id="themeToggle" title="Alternar tema">🌙</button>
-                <a href="index.html" class="lang-link" title="Portugues" aria-current="page">🇧🇷 PT</a>
-                <a href="index_en.html" class="lang-link" title="English">🇺🇸 EN</a>
+                <label class="theme-switch" for="themeToggle" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+                    <input type="checkbox" id="themeToggle" class="theme-switch__checkbox" role="switch" aria-checked="true">
+                    <div class="theme-switch__container" aria-hidden="true">
+                        <div class="theme-switch__circle-container">
+                            <div class="theme-switch__sun-moon-container">
+                                <div class="theme-switch__moon">
+                                    <span class="theme-switch__spot"></span>
+                                    <span class="theme-switch__spot"></span>
+                                    <span class="theme-switch__spot"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="theme-switch__clouds"></span>
+                        <span class="theme-switch__stars-container">
+                            <svg width="44" height="9" viewBox="0 0 44 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="2.5" cy="6.5" r="1.5" fill="#fff"></circle>
+                                <circle cx="8.5" cy="1.5" r="0.5" fill="#fff"></circle>
+                                <circle cx="16" cy="3" r="1" fill="#fff"></circle>
+                                <circle cx="22.5" cy="7.5" r="1.5" fill="#fff"></circle>
+                                <circle cx="29.5" cy="3.5" r="1" fill="#fff"></circle>
+                                <circle cx="36" cy="1" r="0.5" fill="#fff"></circle>
+                                <circle cx="41.5" cy="6.5" r="1" fill="#fff"></circle>
+                            </svg>
+                        </span>
+                    </div>
+                </label>
             </div>
         </nav>
     </header>
