@@ -680,6 +680,41 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     align-items: stretch;
 }
 
+/* Coluna visual do Sobre (foto com efeito igual ao Hero) */
+.about-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+}
+
+/* Wrapper para acomodar imagem orgânica e cards flutuantes */
+.about-img-wrapper {
+    width: 100%;
+    max-width: 420px;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tamanho da foto no desktop dentro do Sobre */
+.about-img {
+    width: 360px;
+    height: 360px;
+}
+
+/* Ajustes finos de posição dos cards no layout da seção Sobre */
+.about-img-wrapper .code-card.c1 {
+    top: 8%;
+    right: -2%;
+}
+
+.about-img-wrapper .code-card.c2 {
+    bottom: 8%;
+    left: -4%;
+}
+
 .about-card {
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1464,6 +1499,10 @@ body.light-mode textarea::placeholder {
     .contact-wrapper { grid-template-columns: 1fr; }
     .section-header::before { display: none; }
     .about-grid { grid-template-columns: 1fr; }
+    /* No tablet/mobile, a arte desce para baixo do conteúdo textual */
+    .about-visual { margin-top: 10px; }
+    .about-img-wrapper { min-height: 340px; }
+    .about-img { width: 300px; height: 300px; }
 }
 
 @media (max-width: 720px) {
@@ -1481,6 +1520,9 @@ body.light-mode textarea::placeholder {
 
     .section-header h2 { font-size: 2rem; }
     .about-card { padding: 24px; }
+    /* Reduz imagem para caber em telas pequenas sem cortar o efeito */
+    .about-img-wrapper { min-height: 280px; }
+    .about-img { width: 240px; height: 240px; }
     .services-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     .projects-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 
