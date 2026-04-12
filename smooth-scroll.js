@@ -1,6 +1,8 @@
-
+// Controla um scroll suave customizado no desktop usando um container fixo
+// e mantém o scroll nativo no mobile para melhor compatibilidade.
 class SmoothScroll {
     constructor() {
+        // target: posição desejada do scroll | current: posição renderizada
         this.target = 0;
         this.current = 0;
         this.ease = 0.04; // Muito suave e lento (era 0.08)
@@ -17,6 +19,7 @@ class SmoothScroll {
     }
 
     init() {
+        // #smooth-wrapper é o container que será "movido" via transform
         // Obter wrapper existente
         this.scrollContainer = document.getElementById('smooth-wrapper');
         
@@ -57,6 +60,7 @@ class SmoothScroll {
     }
 
     initAnchorLinks() {
+        // Substitui salto imediato por animação ao clicar em links internos
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -83,6 +87,7 @@ class SmoothScroll {
     }
 
     smoothScrollTo(targetY, duration) {
+        // Faz animação temporária até a âncora e depois devolve controle à inércia
         this.isScrollingToAnchor = true;
         const startY = this.current;
         const distance = targetY - startY;
@@ -115,6 +120,7 @@ class SmoothScroll {
     }
 
     setHeight() {
+        // O body recebe altura real do conteúdo para manter barra de rolagem funcional
         // Restaurar altura real do container para medir
         this.scrollContainer.style.height = 'auto';
         const height = this.scrollContainer.getBoundingClientRect().height;
@@ -125,6 +131,7 @@ class SmoothScroll {
     }
 
     animate() {
+        // Loop principal: aplica inércia no deslocamento do wrapper
         // Se estiver em animação automática (âncora), pular lógica de inércia
         if (this.isScrollingToAnchor) {
             // Apenas aplicar a transformação baseada no valor atualizado pelo loop de animação
@@ -149,6 +156,7 @@ class SmoothScroll {
     }
 
     lerp(start, end, factor) {
+        // Interpolação linear para transição progressiva entre duas posições
         return start + (end - start) * factor;
     }
 }

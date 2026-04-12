@@ -6,6 +6,7 @@ let charIndex = 0;
 let isDeleting = false;
 
 function type() {
+    // Palavra atualmente exibida na animação
     const currentWord = words[wordIndex];
     
     if (isDeleting) {
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', type);
 const themeToggle = document.getElementById('themeToggle');
 
 function applyTheme(theme) {
+    // O tema claro é aplicado via classe no body; o escuro é o padrão
     const isLightMode = theme === 'light';
     document.body.classList.toggle('light-mode', isLightMode);
 
@@ -69,6 +71,7 @@ const observerOptions = {
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+        // Ativa a animação apenas quando o elemento entra na tela
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
         }
@@ -82,6 +85,7 @@ const aboutTabs = document.querySelectorAll('.about-tab');
 const aboutPanels = document.querySelectorAll('.about-panel');
 
 function setActiveAboutTab(tab) {
+    // Troca a aba ativa e sincroniza o painel correspondente
     const target = tab.dataset.tab;
     if (!target) return;
 
@@ -144,6 +148,7 @@ const modalCategory = modal.querySelector('.modal-category');
 const modalFeatures = modal.querySelector('.modal-features');
 
 function getRoleIconClass(role) {
+    // Define o ícone do modal conforme o tipo de atuação no projeto
     const normalized = (role || '').toLowerCase();
 
     if (/cyber|security|seguran/.test(normalized)) return 'fa-shield-halved';
@@ -155,6 +160,7 @@ function getRoleIconClass(role) {
 }
 
 function normalizeProjectUrl(rawUrl) {
+    // Corrige URLs incompletas para evitar links quebrados no botão "visitar"
     if (!rawUrl) return '#';
     const trimmed = rawUrl.trim();
     if (/^https?:\/[^/]/i.test(trimmed)) {
@@ -166,6 +172,7 @@ function normalizeProjectUrl(rawUrl) {
 }
 
 function openModal(card) {
+    // Coleta dados do card clicado e preenche o conteúdo do modal
     const title = card.querySelector('h3')?.textContent || '';
     const detailsRaw = card.dataset.details || card.querySelector('p')?.textContent || '';
     const cardImage = card.querySelector('.project-img-container img');
@@ -181,12 +188,14 @@ function openModal(card) {
     const category = card.dataset.category || '';
     modalTitle.textContent = title;
     if (/[;\n•]/.test(detailsRaw)) {
+        // Converte descrições em lista visual quando houver separadores
         const lines = detailsRaw.split(/;|\n|•/).map(s => s.trim()).filter(Boolean);
         modalDesc.innerHTML = lines.map(l => `• ${l}`).join('<br>');
     } else {
         modalDesc.textContent = detailsRaw;
     }
     if (videoSource && modalVideo) {
+        // Prioriza vídeo quando existir mídia em formato de vídeo
         modalVideo.src = videoSource;
         modalVideo.style.display = 'block';
         modalImg.style.display = 'none';
@@ -197,6 +206,7 @@ function openModal(card) {
             playPromise.catch(() => {});
         }
     } else {
+        // Caso não exista vídeo, usa imagem estática do projeto
         modalImg.src = imageSource;
         modalImg.style.display = 'block';
         if (modalVideo) {
@@ -231,6 +241,7 @@ function openModal(card) {
 }
 
 function closeModal() {
+    // Garante parada do vídeo para não continuar tocando em segundo plano
     if (modalVideo) {
         modalVideo.pause();
         modalVideo.currentTime = 0;
@@ -256,6 +267,7 @@ const siteHeader = document.querySelector('header');
 const navLinks = document.querySelectorAll('.nav-links a');
 
 function closeMobileMenu() {
+    // Fecha o menu mobile e atualiza atributo de acessibilidade
     if (!siteHeader || !navToggle) return;
     siteHeader.classList.remove('nav-open');
     navToggle.setAttribute('aria-expanded', 'false');
@@ -281,6 +293,7 @@ const mobileHeaderQuery = window.matchMedia('(max-width: 560px)');
 let headerHideTimer = null;
 
 function setHeaderHiddenState(shouldHide) {
+    // Só esconde header no mobile e quando menu não está aberto
     if (!siteHeader) return;
     if (shouldHide && !siteHeader.classList.contains('nav-open')) {
         siteHeader.classList.add('mobile-hidden');
@@ -290,6 +303,7 @@ function setHeaderHiddenState(shouldHide) {
 }
 
 function revealHeaderTemporarily() {
+    // Mostra o header temporariamente após toque no topo da tela
     if (!siteHeader) return;
     setHeaderHiddenState(false);
     if (headerHideTimer) {
@@ -303,6 +317,7 @@ function revealHeaderTemporarily() {
 }
 
 function handleHeaderVisibility() {
+    // Regra de exibição do header com base em largura e posição do scroll
     if (!siteHeader) return;
     if (!mobileHeaderQuery.matches) {
         setHeaderHiddenState(false);

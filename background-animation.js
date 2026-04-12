@@ -1,6 +1,7 @@
-
+// Desenha um "terminal" animado no fundo da página com efeito de digitação.
 class CodeBackground {
     constructor() {
+        // Estado base do canvas e da animação de texto
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.codeSnippet = this.getCodeSnippet();
@@ -12,6 +13,7 @@ class CodeBackground {
     }
 
     init() {
+        // Injeta o canvas no topo do body para funcionar como camada de fundo
         // Configuração do Canvas
         this.canvas.id = 'bg-code-canvas';
         this.canvas.style.position = 'fixed';
@@ -26,6 +28,7 @@ class CodeBackground {
 
         this.resize();
         window.addEventListener('resize', () => {
+            // Debounce simples para evitar recalcular em excesso durante resize
             clearTimeout(this.resizeTimeout);
             this.resizeTimeout = setTimeout(() => this.resize(), 100);
         });
@@ -38,6 +41,7 @@ class CodeBackground {
     }
 
     typeWriter() {
+        // Avança o texto aos poucos para simular digitação humana
         // Velocidade de digitação (ms)
         const minSpeed = 30; // Mais lento
         const maxSpeed = 0.5; // Mais lento
@@ -73,6 +77,7 @@ class CodeBackground {
     // updateCodeVisibility() removido
 
     resize() {
+        // Recalibra medidas do canvas e tipografia para o tamanho da viewport
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
         this.fontSize = Math.max(14, window.innerWidth / 100); // Responsivo
@@ -84,6 +89,7 @@ class CodeBackground {
     }
 
     draw() {
+        // Renderiza quadro completo: texto visível + cursor piscando
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         
         // Fundo escuro leve (opcional, já que o site tem fundo)
@@ -108,6 +114,7 @@ class CodeBackground {
         
         const visibleLines = lines.slice(startIndex);
 
+        // Observacao: aqui a leitura de tema depende do atributo data-theme no html
         const isLight = document.documentElement.getAttribute('data-theme') === 'light';
         visibleLines.forEach((line, index) => {
             // Syntax Highlighting Simples
@@ -135,6 +142,7 @@ class CodeBackground {
     }
 
     drawHighlightedLine(text, x, y, isLight) {
+        // Highlight simplificado para manter performance alta no fundo animado
         // Regex simples para keywords
         const keywords = ['const', 'let', 'var', 'function', 'class', 'return', 'if', 'else', 'for', 'while', 'import', 'from', 'async', 'await', 'new', 'this', 'super'];
         const types = ['String', 'Number', 'Boolean', 'Object', 'Array', 'Promise', 'void', 'any'];
@@ -177,6 +185,7 @@ class CodeBackground {
     }
 
     animateCursor() {
+        // Pisca cursor em intervalo fixo sem reiniciar a animação de digitação
         setInterval(() => {
             this.cursorBlink = !this.cursorBlink;
             this.draw(); // Redesenhar apenas para piscar cursor
@@ -184,6 +193,7 @@ class CodeBackground {
     }
 
     getCodeSnippet() {
+        // Bloco de texto exibido no efeito typewriter do background
         return `
     /*
 <<<<<<< HEAD
