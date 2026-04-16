@@ -595,10 +595,6 @@ header.nav-open .nav-toggle span:nth-child(3) {
     animation: float 6s ease-in-out infinite;
 }
 
-.hero-img-wrapper .code-card {
-    display: none !important;
-}
-
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
@@ -635,8 +631,8 @@ header.nav-open .nav-toggle span:nth-child(3) {
     z-index: 3;
 }
 
-.code-card.c1 { bottom: 10%; left: 0%; animation: float 7s infinite 2s; }
-.code-card.c2 { top: 10%; right: 10%; animation: float 5s infinite 1s; }
+.code-card.c1 { top: 10%; right: 10%; animation: float 5s infinite 1s; }
+.code-card.c2 { bottom: 10%; left: 0%; animation: float 7s infinite 2s; }
 
 /* --- SEÇÕES GERAIS --- */
 section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
@@ -710,13 +706,13 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 
 /* Ajustes finos de posição dos cards no layout da seção Sobre */
 .about-img-wrapper .code-card.c1 {
-    bottom: 8%;
-    left: -4%;
+    top: 8%;
+    right: -2%;
 }
 
 .about-img-wrapper .code-card.c2 {
-    top: 8%;
-    right: -2%;
+    bottom: 8%;
+    left: -4%;
 }
 
 .about-card {
