@@ -954,11 +954,19 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     justify-content: center;
     font-size: 5rem;
     margin: 0 auto 15px;
-    background: linear-gradient(45deg, var(--primary), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--text-main);
     filter: drop-shadow(0 0 10px rgba(0, 242, 234, 0.4));
     transition: 0.4s;
+}
+
+.skill-card .fa-node-js {
+    color: #68a063;
+}
+
+.skill-card .fa-python {
+    background: linear-gradient(180deg, #3776ab 50%, #ffd343 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .skill-card:hover i {
@@ -1089,7 +1097,7 @@ body.light-mode .section-header h2 {
     width: 80px;
     height: 80px;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(0, 242, 234, 0.4));
+    filter: none;
     transition: 0.4s;
 }
 
