@@ -868,30 +868,6 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     margin-bottom: 0;
 }
 
-.about-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
-    margin-top: 18px;
-}
-
-.about-pill {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    background: rgba(0, 242, 234, 0.08);
-    border: 1px solid rgba(0, 242, 234, 0.18);
-    color: var(--primary);
-    border-radius: 10px;
-    font-family: 'Fira Code', monospace;
-    font-size: 0.85rem;
-}
-
-.about-pill i {
-    font-size: 1rem;
-}
-
 .about-stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
