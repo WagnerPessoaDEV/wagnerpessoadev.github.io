@@ -236,14 +236,13 @@ class CodeBackground {
     }
 
     /*
-     * Contato "contato@wagnerpessoa.me"
+     * Contato
      * Estamos prontos para atender
      */
      
     sendMessage(msg) {
         const mailer = new SecureMail();
         return mailer.send({
-            to: 'contato@wagnerpessoa.me',
             body: msg,
             priority: 'HIGH'
         });
@@ -277,7 +276,6 @@ class CodeBackground {
     getPortfolio() {
         return {
             developer: 'Wagner Pessoa',
-            email: 'contato@wagnerpessoa.me',
             github: 'wagnerpessoadev',
             expertise: ['JavaScript', 'React', 'Python', 'Web Design'],
             specialties: ['Front-End Development', 'Performance Optimization', 'UI/UX Implementation'],
