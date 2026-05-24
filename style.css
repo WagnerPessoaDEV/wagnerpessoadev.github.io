@@ -1341,7 +1341,7 @@ body.light-mode .section-header h2 {
 
 .contact-info h3 { font-size: 2rem; margin-bottom: 20px; }
 .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 1.1rem; }
-.contact-item i { color: var(--primary); font-size: 1.5rem; }
+.contact-item i { color: var(--primary); font-size: 1.5rem; width: 1.5rem; text-align: center; }
 .contact-item { cursor: pointer; text-decoration: none; color: inherit; }
 .contact-item:hover { opacity: 0.9; }
 .contact-item:link, .contact-item:visited { color: inherit; }
