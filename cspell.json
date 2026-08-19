@@ -1,0 +1,50 @@
+{
+  "version": "0.2",
+  "language": "pt-BR",
+  "ignorePaths": [
+    "node_modules/**",
+    "dist/**",
+    ".git/**"
+  ],
+  "words": [
+    "WagnerPessoa",
+    "Wagner",
+    "Pessoa",
+    "wagnerpessoadev",
+    "GitHub",
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Node.js",
+    "Next.js",
+    "Karta",
+    "Codaalix",
+    "Instituto",
+    "Karta-APP",
+    "SentinelScan",
+    "Análise",
+    "Desenvolvedor",
+    "Estácio",
+    "Bradesco",
+    "Santander",
+    "Dio",
+    "Gemini",
+    "PIX",
+    "WhatsApp",
+    "Ipanema",
+    "Fira",
+    "Outfit",
+    "FiraCode",
+    "cspell",
+    "fa-node-js",
+    "fa-python",
+    "fa-github",
+    "Manutenção"
+  ],
+  "ignoreRegExpList": [
+    "\/imagens\/.*",
+    "\/assets\/.*",
+    "https?:\\/\\/[^\\s]*",
+    "\\b[A-Z]{2,}\\b"
+  ]
+}
