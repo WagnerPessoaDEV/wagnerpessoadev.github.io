@@ -41,8 +41,7 @@ class CodeBackground {
     }
 
     typeWriter() {
-        // Avança o texto aos poucos para simular digitação humana
-        // Velocidade de digitação (ms)
+        // Avança o texto aos poucos para simular digitação humana e Velocidade de digitação (ms)
         const minSpeed = 30; // Mais lento
         const maxSpeed = 0.5; // Mais lento
         
