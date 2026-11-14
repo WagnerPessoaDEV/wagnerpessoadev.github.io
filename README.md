@@ -36,7 +36,6 @@ O site foi construído para apresentar minha trajetória, competências técnica
 | **Toda Bela** | E-commerce & Landing Page | Loja virtual completa com galeria lightbox, carrinho front-end e checkout automatizado via WhatsApp. | [todabelarj.com.br](https://todabelarj.com.br/) |
 | **Instituto Cuidar Bem** | Landing Page Social | Site institucional voluntário com foco em acessibilidade, usabilidade e captação de voluntários. | [Ver Projeto](https://wagnerpessoadev.github.io/) |
 | **SentinelScan** | Cybersecurity & Redes | Scanner de portas e auditoria de vulnerabilidades em Python com socket e relatórios analíticos. | [Repositório GitHub](https://github.com/WagnerPessoaDEV/SentinelScan-main) |
-| **Manutenção & Suporte** | Serviços Contínuos | Suporte técnico, melhorias de UI/UX, atualização de layouts e otimização contínua de sites. | [Contato](https://wagnerpessoa.me/#contact) |
 
 ---
 
