@@ -199,6 +199,12 @@ function openModal(card) {
     if (videoSource && modalVideo) {
         // Prioriza vídeo quando existir mídia em formato de vídeo
         modalVideo.src = videoSource;
+        const cardPoster = cardVideo?.getAttribute('poster');
+        if (cardPoster) {
+            modalVideo.poster = cardPoster;
+        } else {
+            modalVideo.removeAttribute('poster');
+        }
         modalVideo.style.display = 'block';
         modalImg.style.display = 'none';
         modalImg.removeAttribute('src');
@@ -214,6 +220,7 @@ function openModal(card) {
         if (modalVideo) {
             modalVideo.pause();
             modalVideo.removeAttribute('src');
+            modalVideo.removeAttribute('poster');
             modalVideo.style.display = 'none';
         }
     }
@@ -253,6 +260,7 @@ function closeModal() {
         modalVideo.pause();
         modalVideo.currentTime = 0;
         modalVideo.removeAttribute('src');
+        modalVideo.removeAttribute('poster');
         modalVideo.style.display = 'none';
     }
     if (modalImg) {
