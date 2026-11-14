@@ -77,7 +77,7 @@ wagnerpessoadev.github.io/
 ├── CNAME                       # Configuração de DNS para wagnerpessoa.me
 ├── OTIMIZACOES.md              # Documentação técnica das otimizações de performance
 ├── assets/
-│   └── WagnerPessoa.pdf        # Currículo profissional para download
+│   └── Wagner_Pessoa.pdf       # Currículo profissional para download
 └── imagens/                    # Fotos de perfil, screenshots, logos e vídeos MP4 dos projetos
     ├── mimodecria.png          # Banner do projeto Mimo de Cria
     ├── TodaBelaRJ.mp4          # Demonstração em vídeo Toda Bela
