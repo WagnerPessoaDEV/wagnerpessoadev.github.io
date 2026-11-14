@@ -24,7 +24,7 @@ class SmoothScroll {
         this.scrollContainer = document.getElementById('smooth-wrapper');
         
         if (!this.scrollContainer) {
-            console.error('Smooth Scroll: Wrapper #smooth-wrapper não encontrado.');
+            // Se o container de scroll virtual não estiver presente, usa o scroll nativo do navegador
             return;
         }
 

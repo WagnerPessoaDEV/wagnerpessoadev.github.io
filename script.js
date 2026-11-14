@@ -41,6 +41,7 @@ function applyTheme(theme) {
     // O tema claro é aplicado via classe no body; o escuro é o padrão
     const isLightMode = theme === 'light';
     document.body.classList.toggle('light-mode', isLightMode);
+    document.documentElement.setAttribute('data-theme', theme);
 
     if (themeToggle) {
         const isDarkMode = !isLightMode;
@@ -111,7 +112,7 @@ if (aboutTabs.length && aboutPanels.length) {
 
 
 // --- 3. Efeito 3D Tilt nos Cards (Vanilla JS puro) ---
-const cards = document.querySelectorAll('.project-card');
+const cards = document.querySelectorAll('.project-card:not(.project-placeholder)');
 
 cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -145,6 +146,7 @@ const modalYear = modal.querySelector('.modal-year');
 const modalRole = modal.querySelector('.modal-role');
 const modalRoleIcon = modal.querySelector('.modal-role-icon');
 const modalCategory = modal.querySelector('.modal-category');
+const modalCategoryItem = modal.querySelector('.modal-category-item');
 const modalFeatures = modal.querySelector('.modal-features');
 
 function getRoleIconClass(role) {
@@ -232,7 +234,12 @@ function openModal(card) {
     
     if (modalYear) modalYear.textContent = year;
     if (modalRole) modalRole.textContent = role;
-    if (modalCategory) modalCategory.textContent = category;
+    if (modalCategory) {
+        modalCategory.textContent = category;
+        if (modalCategoryItem) {
+            modalCategoryItem.style.display = category ? 'inline-flex' : 'none';
+        }
+    }
     if (modalRoleIcon) {
         modalRoleIcon.className = `fas modal-role-icon ${getRoleIconClass(role)}`;
     }
@@ -241,10 +248,16 @@ function openModal(card) {
 }
 
 function closeModal() {
-    // Garante parada do vídeo para não continuar tocando em segundo plano
+    // Garante parada do vídeo e limpeza da mídia para não continuar tocando em segundo plano
     if (modalVideo) {
         modalVideo.pause();
         modalVideo.currentTime = 0;
+        modalVideo.removeAttribute('src');
+        modalVideo.style.display = 'none';
+    }
+    if (modalImg) {
+        modalImg.removeAttribute('src');
+        modalImg.style.display = 'none';
     }
     modal.classList.remove('active');
 }
@@ -341,3 +354,45 @@ window.addEventListener('touchstart', (event) => {
 mobileHeaderQuery.addEventListener('change', handleHeaderVisibility);
 handleHeaderVisibility();
 
+// --- 6. Envio do Formulário de Contato ---
+const contactForm = document.getElementById('contactForm');
+const contactStatus = document.getElementById('contactStatus');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = contactForm.querySelector('[name="name"]');
+        const emailInput = contactForm.querySelector('[name="email"]');
+        const messageInput = contactForm.querySelector('[name="message"]');
+
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const message = messageInput ? messageInput.value.trim() : '';
+
+        if (!name || !email || !message) {
+            if (contactStatus) {
+                contactStatus.className = 'contact-status error';
+                contactStatus.textContent = 'Por favor, preencha todos os campos antes de enviar.';
+            }
+            return;
+        }
+
+        const subject = encodeURIComponent(`Contato através do Portfólio - ${name}`);
+        const body = encodeURIComponent(`Olá Wagner,\n\nMeu nome é ${name} (${email}).\n\nMensagem:\n${message}\n\nEnviado através do site wagnerpessoa.me`);
+        const mailtoUrl = `mailto:wagnerpessoa.dev@gmail.com?subject=${subject}&body=${body}`;
+
+        if (contactStatus) {
+            contactStatus.className = 'contact-status success';
+            contactStatus.textContent = 'Abrindo seu cliente de e-mail para envio...';
+        }
+
+        window.location.href = mailtoUrl;
+
+        setTimeout(() => {
+            contactForm.reset();
+            if (contactStatus) {
+                contactStatus.textContent = 'Mensagem encaminhada. Aguardo sua mensagem!';
+            }
+        }, 2500);
+    });
+}

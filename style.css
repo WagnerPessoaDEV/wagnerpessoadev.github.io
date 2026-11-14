@@ -31,6 +31,8 @@ body.light-mode {
 }
 
 html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
     background-color: var(--bg-color);
     background-image: var(--bg-gradient);
     background-attachment: fixed;
@@ -1139,6 +1141,39 @@ body.light-mode .section-header h2 {
     transform: scale(1.1);
 }
 
+.project-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed rgba(0, 242, 234, 0.35);
+    background: rgba(0, 242, 234, 0.03);
+    cursor: default;
+}
+
+.project-placeholder .card-inner {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.project-placeholder-icon {
+    display: grid;
+    place-items: center;
+    width: 84px;
+    height: 84px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(0, 242, 234, 0.4);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.project-placeholder p {
+    max-width: 260px;
+    margin: 10px 0 0;
+    color: var(--text-muted);
+}
+
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1240,7 +1275,8 @@ body.light-mode .section-header h2 {
 }
 .modal-meta {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-bottom: 20px;
     font-family: 'Fira Code', monospace;
     font-size: 0.9rem;
@@ -1391,6 +1427,30 @@ form input:focus, form textarea:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 10px rgba(0, 242, 234, 0.2);
+}
+
+.contact-status {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-height: 24px;
+    transition: opacity 0.3s ease;
+}
+
+.contact-status.success {
+    color: #50fa7b;
+}
+
+.contact-status.error {
+    color: #ff5555;
+}
+
+body.light-mode .contact-status.success {
+    color: #008844;
+}
+
+body.light-mode .contact-status.error {
+    color: #cc0000;
 }
 
 /* --- FOOTER --- */

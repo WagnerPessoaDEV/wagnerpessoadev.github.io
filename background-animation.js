@@ -42,9 +42,9 @@ class CodeBackground {
 
     typeWriter() {
         // Avança o texto aos poucos para simular digitação humana
-        // Velocidade de digitação (ms)
-        const minSpeed = 30; // Mais lento
-        const maxSpeed = 0.5; // Mais lento
+        // Intervalo de digitação (ms)
+        const minDelay = 10;
+        const maxDelay = 35;
         
         // Caracteres por frame
         const charsPerFrame = 1;
@@ -53,8 +53,8 @@ class CodeBackground {
             this.charIndex += charsPerFrame;
             this.draw();
 
-            // Delay aleatório para parecer humano
-            const randomDelay = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+            // Delay aleatório para parecer digitação natural
+            const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
             
             const currentChar = this.codeSnippet[this.charIndex];
             let delay = randomDelay;
@@ -114,8 +114,8 @@ class CodeBackground {
         
         const visibleLines = lines.slice(startIndex);
 
-        // Observacao: aqui a leitura de tema depende do atributo data-theme no html
-        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        // Lê a preferência de tema tanto pela classe no body quanto pelo atributo no html
+        const isLight = document.body.classList.contains('light-mode') || document.documentElement.getAttribute('data-theme') === 'light';
         visibleLines.forEach((line, index) => {
             // Syntax Highlighting Simples
             this.drawHighlightedLine(line, 20, currentY + (index * this.lineHeight), isLight);
@@ -196,12 +196,8 @@ class CodeBackground {
         // Bloco de texto exibido no efeito typewriter do background
         return `
     /*
-<<<<<<< HEAD
-     * NOSSOS SERVIÇOS SÃO
-=======
      * Nossos Serviços São
->>>>>>> 217769e (Personalização do snippet de código)
-     * Otimizados para MAXIMUM PERFORMANCE
+     * Otimizados para Máxima Performance
      */
     
     getServices() {
