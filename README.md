@@ -34,7 +34,7 @@ O site foi construído para apresentar minha trajetória, competências técnica
 | **Karta (SaaS)** | Cardápio Digital & Pedidos | Plataforma digital com QR Code, acompanhamento de pedidos estilo Kanban, integração WhatsApp e métricas de gestão. | [kartaapp.com.br](https://kartaapp.com.br) |
 | **Codaalix** | Estúdio Web & SaaS | Vitrine tecnológica moderna com microinterações, foco em conversão e posicionamento de autoridade digital. | [codaalix.com.br](https://codaalix.com.br) |
 | **Toda Bela** | E-commerce & Landing Page | Loja virtual completa com galeria lightbox, carrinho front-end e checkout automatizado via WhatsApp. | [todabelarj.com.br](https://todabelarj.com.br/) |
-| **Instituto Cuidar Bem** | Landing Page Social | Site institucional voluntário com foco em acessibilidade, usabilidade e captação de voluntários. | [Ver Projeto](https://wagnerpessoadev.github.io/) |
+| **Instituto Cuidar Bem** | Landing Page Social | Site institucional voluntário com foco em acessibilidade, usabilidade e captação de voluntários. | [decip.org.br](https://www.decip.org.br) |
 | **SentinelScan** | Cybersecurity & Redes | Scanner de portas e auditoria de vulnerabilidades em Python com socket e relatórios analíticos. | [Repositório GitHub](https://github.com/WagnerPessoaDEV/SentinelScan-main) |
 
 ---
@@ -55,10 +55,10 @@ O site foi construído para apresentar minha trajetória, competências técnica
 ## 🛠️ Tecnologias Utilizadas
 
 <div align="left">
-  <img src="https://skillicons.dev/icons?i=html,css,js,nodejs,react,python,github,git" alt="Tech Stack" />
+  <img src="https://skillicons.dev/icons?i=html,css,js,nodejs,react,python,mongodb,github,git" alt="Tech Stack" />
 </div>
 
-- **Linguagens & Front-End:** HTML5 Semântico, CSS3 (Flexbox, CSS Grid, Custom Properties, Glassmorphism), JavaScript ES6+
+- **Linguagens & Tecnologias:** HTML5 Semântico, CSS3 (Flexbox, CSS Grid, Custom Properties, Glassmorphism), JavaScript ES6+, React, Node.js, Python, MongoDB
 - **Tipografia & Ícones:** [Google Fonts](https://fonts.google.com/) (Outfit, Fira Code), [Font Awesome 6](https://fontawesome.com/)
 - **Hospedagem & Deploy:** GitHub Pages com suporte a domínio personalizado via `CNAME`
 
@@ -78,7 +78,9 @@ wagnerpessoadev.github.io/
 ├── assets/
 │   └── Wagner_Pessoa.pdf       # Currículo profissional para download
 └── imagens/                    # Fotos de perfil, screenshots, logos e vídeos MP4 dos projetos
-    ├── mimodecria.png          # Banner do projeto Mimo de Cria
+    ├── mimodecria.mp4          # Demonstração em vídeo Mimo de Cria
+    ├── mimodecria.png          # Banner / capa do projeto Mimo de Cria
+    ├── mongodb.svg             # Ícone vetorial oficial do MongoDB
     ├── TodaBelaRJ.mp4          # Demonstração em vídeo Toda Bela
     ├── Karta-APP.mp4           # Demonstração em vídeo Karta
     ├── codaalix.mp4            # Demonstração em vídeo Codaalix
@@ -141,6 +143,12 @@ Este repositório está configurado para publicação contínua via **GitHub Pag
   </a>
   <a href="https://www.instagram.com/wagnerpessoadev" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=flat-square&logo=instagram&logoColor=white" alt="Instagram">
+  </a>
+  <a href="https://x.com/WagnerPessoaDev" target="_blank">
+    <img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white" alt="X (Twitter)">
+  </a>
+  <a href="https://youtube.com/@WagnerPessoaDev" target="_blank">
+    <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="YouTube">
   </a>
   <a href="mailto:wagnerpessoa.dev@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white" alt="Email">
