@@ -896,11 +896,117 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     font-size: 0.9rem;
 }
 
-/* --- SKILLS CARDS --- */
+/* --- SKILLS CARDS & LOGO LOOP --- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 30px;
+}
+
+/* --- MINIMALIST TECH LOGO LOOP (React Bits Modern Style) --- */
+.logo-loop-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 44px 0;
+    margin: 15px 0 25px;
+    background: transparent;
+    /* Efeito de fadeOut suave nas bordas (idêntico ao modelo de referência) */
+    mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.logo-loop-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+}
+
+.logo-loop-group {
+    display: flex;
+    align-items: center;
+    gap: 76px;
+    padding-right: 76px;
+    will-change: transform;
+    animation: logoLoopScroll 28s linear infinite;
+}
+
+/* Pausa suave no hover do carrossel */
+.logo-loop-container:hover .logo-loop-group {
+    animation-play-state: paused;
+}
+
+@keyframes logoLoopScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.minimal-tech-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    opacity: 0.92;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, filter 0.28s ease, color 0.25s ease;
+}
+
+.minimal-tech-item:hover {
+    transform: scale(1.22);
+    color: #ffffff;
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 26px rgba(0, 212, 255, 0.35));
+}
+
+.minimal-tech-item .tech-icon-svg {
+    width: 48px;
+    height: 48px;
+    display: block;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Cores e contraste no Modo Claro */
+body.light-mode .minimal-tech-item {
+    color: #1e293b;
+    opacity: 0.82;
+}
+
+body.light-mode .minimal-tech-item:hover {
+    color: #000000;
+    opacity: 1;
+    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.25));
+}
+
+@media (max-width: 768px) {
+    .logo-loop-container {
+        padding: 28px 0;
+    }
+    .logo-loop-group {
+        gap: 52px;
+        padding-right: 52px;
+        animation-duration: 22s;
+    }
+    .minimal-tech-item .tech-icon-svg {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-loop-group {
+        animation: none;
+    }
+    .logo-loop-container {
+        mask-image: none;
+        -webkit-mask-image: none;
+        overflow-x: auto;
+    }
 }
 
 .skill-card {
