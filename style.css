@@ -652,14 +652,16 @@ footer {
 
 .code-card {
     position: absolute;
-    background: rgba(11, 13, 23, 0.9);
+    background: linear-gradient(145deg, rgba(13, 20, 36, 0.78) 0%, rgba(8, 12, 22, 0.88) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 242, 234, 0.35);
     font-family: 'Fira Code', monospace;
     font-size: 0.8rem;
     color: var(--primary);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 18px rgba(0, 242, 234, 0.14), inset 0 1px 1px rgba(255, 255, 255, 0.18);
     z-index: 3;
 }
 
@@ -749,21 +751,21 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 
 /* --- ABOUT CARD FROSTED GLASS (Glassmorphism estilo KPI) --- */
 .about-card {
-    background: linear-gradient(145deg, rgba(14, 20, 36, 0.82) 0%, rgba(9, 13, 24, 0.90) 100%);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: linear-gradient(145deg, rgba(13, 20, 36, 0.78) 0%, rgba(8, 12, 22, 0.88) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid rgba(0, 242, 234, 0.35);
     padding: 38px;
     border-radius: 22px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.18);
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
 .about-card:hover {
-    border-color: rgba(0, 242, 234, 0.6);
-    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 32px rgba(0, 242, 234, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    border-color: rgba(0, 242, 234, 0.65);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 234, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.28);
 }
 
 .about-card::before {
@@ -803,12 +805,12 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     flex-wrap: wrap;
     padding: 8px 10px;
     border-radius: 16px;
-    background: rgba(4, 8, 16, 0.65);
+    background: rgba(4, 8, 16, 0.6);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(0, 242, 234, 0.25);
     margin-bottom: 24px;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .about-tab {
@@ -1260,13 +1262,13 @@ body.light-mode .section-header h2 {
 }
 
 .project-card {
-    background: linear-gradient(145deg, rgba(14, 20, 36, 0.82) 0%, rgba(9, 13, 24, 0.90) 100%);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: linear-gradient(145deg, rgba(13, 20, 36, 0.78) 0%, rgba(8, 12, 22, 0.88) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-radius: 24px;
     overflow: hidden;
     border: 1px solid rgba(0, 242, 234, 0.35);
-    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.18);
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.1s; /* Rápido para o tilt JS */
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -1287,7 +1289,7 @@ body.light-mode .section-header h2 {
 
 .project-card:hover {
     border-color: rgba(0, 242, 234, 0.65);
-    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 234, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 234, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.28);
 }
 
 .card-inner {
@@ -1577,13 +1579,13 @@ body.light-mode .section-header h2 {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 50px;
-    background: linear-gradient(145deg, rgba(14, 20, 36, 0.82) 0%, rgba(9, 13, 24, 0.90) 100%);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: linear-gradient(145deg, rgba(13, 20, 36, 0.78) 0%, rgba(8, 12, 22, 0.88) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 50px;
     border-radius: 30px;
     border: 1px solid rgba(0, 242, 234, 0.35);
-    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.65), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.18);
     position: relative;
     overflow: hidden;
     transition: border-color 0.35s ease, box-shadow 0.35s ease;
@@ -1591,7 +1593,7 @@ body.light-mode .section-header h2 {
 
 .contact-wrapper:hover {
     border-color: rgba(0, 242, 234, 0.65);
-    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 234, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 234, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.28);
 }
 
 .contact-wrapper::before {
