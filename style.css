@@ -747,21 +747,31 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
     left: -4%;
 }
 
+/* --- ABOUT CARD FROSTED GLASS (Glassmorphism estilo KPI) --- */
 .about-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 35px;
-    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(14, 20, 36, 0.82) 0%, rgba(9, 13, 24, 0.90) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(0, 242, 234, 0.35);
+    padding: 38px;
+    border-radius: 22px;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.about-card:hover {
+    border-color: rgba(0, 242, 234, 0.6);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 32px rgba(0, 242, 234, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .about-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at top left, rgba(0, 242, 234, 0.08), transparent 55%);
-    opacity: 0.8;
+    background: radial-gradient(circle at top left, rgba(0, 242, 234, 0.14), transparent 55%);
+    opacity: 0.9;
     pointer-events: none;
 }
 
@@ -771,50 +781,60 @@ section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 }
 
 .about-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 12px;
-    color: var(--text-main);
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .about-card p {
-    color: var(--text-muted);
-    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.02rem;
+    line-height: 1.8;
     margin-bottom: 14px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .about-tabs {
-    display: flex;
-    gap: 10px;
+    display: inline-flex;
+    gap: 8px;
     flex-wrap: wrap;
-    padding: 10px;
-    border-radius: 14px;
-    background: rgba(0, 242, 234, 0.06);
-    border: 1px solid rgba(0, 242, 234, 0.15);
-    margin-bottom: 18px;
+    padding: 8px 10px;
+    border-radius: 16px;
+    background: rgba(4, 8, 16, 0.65);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(0, 242, 234, 0.25);
+    margin-bottom: 24px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .about-tab {
     background: transparent;
     border: 1px solid transparent;
-    color: var(--text-main);
+    color: rgba(255, 255, 255, 0.75);
     font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    padding: 8px 14px;
-    border-radius: 10px;
+    font-size: 0.92rem;
+    padding: 9px 18px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.25s ease;
 }
 
 .about-tab:hover {
-    border-color: rgba(0, 242, 234, 0.4);
-    color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(0, 242, 234, 0.35);
+    color: #ffffff;
 }
 
 .about-tab.active {
-    background: var(--primary);
-    color: #000;
+    background: linear-gradient(135deg, var(--primary) 0%, #00c3ff 100%);
+    color: #040914;
+    font-weight: 700;
     border-color: var(--primary);
-    box-shadow: 0 0 18px rgba(0, 242, 234, 0.35);
+    box-shadow: 0 0 22px rgba(0, 242, 234, 0.55);
 }
 
 .about-panel {
@@ -1232,7 +1252,7 @@ body.light-mode .section-header h2 {
     transform: scale(1.2) rotate(8deg);
 }
 
-/* --- PROJETOS (3D TILT EFFECT) --- */
+/* --- PROJETOS (FROSTED GLASS EFFECT ESTILO KPI) --- */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -1240,15 +1260,34 @@ body.light-mode .section-header h2 {
 }
 
 .project-card {
-    background: var(--card-bg);
+    background: linear-gradient(145deg, rgba(14, 20, 36, 0.82) 0%, rgba(9, 13, 24, 0.90) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
     border-radius: 24px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: transform 0.1s; /* Rápido para o tilt JS */
+    border: 1px solid rgba(0, 242, 234, 0.35);
+    box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 242, 234, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.1s; /* Rápido para o tilt JS */
     transform-style: preserve-3d;
     perspective: 1000px;
     min-height: 520px;
     cursor: pointer;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(0, 242, 234, 0.14), transparent 60%);
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.project-card:hover {
+    border-color: rgba(0, 242, 234, 0.65);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 242, 234, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .card-inner {
@@ -1256,14 +1295,18 @@ body.light-mode .section-header h2 {
     height: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
 }
 
 .project-img-container {
     width: 100%;
     aspect-ratio: 16 / 10;
-    border-radius: 15px;
+    border-radius: 16px;
     overflow: hidden;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
 }
 
 .project-img {
@@ -1271,19 +1314,38 @@ body.light-mode .section-header h2 {
     height: 100%;
     object-fit: cover;
     object-position: center center;
-    transition: 0.5s;
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.1);
+    transform: scale(1.08);
+}
+
+.project-card h3 {
+    color: #ffffff;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.project-card p {
+    color: rgba(255, 255, 255, 0.84) !important;
+    line-height: 1.7;
+    font-size: 0.96rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .project-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px dashed rgba(0, 242, 234, 0.35);
-    background: rgba(0, 242, 234, 0.03);
+    border: 1px dashed rgba(0, 242, 234, 0.4);
+    background: linear-gradient(145deg, rgba(14, 20, 36, 0.65) 0%, rgba(9, 13, 24, 0.75) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
     cursor: default;
 }
 
@@ -1299,7 +1361,9 @@ body.light-mode .section-header h2 {
     width: 84px;
     height: 84px;
     margin-bottom: 24px;
-    border: 1px solid rgba(0, 242, 234, 0.4);
+    border: 1px solid rgba(0, 242, 234, 0.5);
+    background: rgba(0, 242, 234, 0.08);
+    box-shadow: 0 0 20px rgba(0, 242, 234, 0.25);
     border-radius: 50%;
     color: var(--primary);
     font-size: 2rem;
@@ -1316,18 +1380,25 @@ body.light-mode .section-header h2 {
     flex-wrap: wrap;
     gap: 8px;
     align-items: center;
+    margin-top: auto;
+    padding-top: 14px;
 }
 
 .tech-tags span {
     display: inline-flex;
     align-items: center;
-    font-size: 0.75rem;
-    padding: 5px 12px;
-    background: rgba(0, 242, 234, 0.1);
+    font-size: 0.76rem;
+    font-weight: 500;
+    padding: 6px 13px;
+    background: rgba(0, 242, 234, 0.12);
     color: var(--primary);
+    border: 1px solid rgba(0, 242, 234, 0.28);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 20px;
     line-height: 1.25;
     font-family: 'Fira Code', monospace;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* --- MODAL DE PROJETOS --- */
@@ -1672,13 +1743,49 @@ body.light-mode .tech-tags span {
     border: 1px solid rgba(2, 132, 199, 0.22);
 }
 
-body.light-mode .project-card,
 body.light-mode .skill-card,
-body.light-mode .about-card,
 body.light-mode .contact-wrapper {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .project-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.88) 0%, rgba(240, 245, 255, 0.94) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(0, 153, 204, 0.35);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 0 24px rgba(0, 153, 204, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+body.light-mode .project-card:hover {
+    border-color: rgba(0, 153, 204, 0.65);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12), 0 0 32px rgba(0, 153, 204, 0.22);
+}
+
+body.light-mode .project-card h3 {
+    color: #0f172a;
+    text-shadow: none;
+}
+
+body.light-mode .project-card p {
+    color: #334155 !important;
+    text-shadow: none;
+}
+
+body.light-mode .tech-tags span {
+    background: rgba(0, 153, 204, 0.1);
+    color: #0284c7;
+    border-color: rgba(0, 153, 204, 0.25);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .about-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.88) 0%, rgba(240, 245, 255, 0.94) 100%);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(0, 153, 204, 0.35);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08), 0 0 24px rgba(0, 153, 204, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.95);
 }
 
 body.light-mode .project-card h3,
@@ -1687,18 +1794,30 @@ body.light-mode .about-card h3 {
     color: var(--text-main);
 }
 
+body.light-mode .about-card h3 {
+    color: #0f172a;
+    text-shadow: none;
+}
+
+body.light-mode .about-card p {
+    color: #334155;
+    text-shadow: none;
+}
+
 body.light-mode .about-tabs {
-    background: rgba(0, 0, 0, 0.04);
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 153, 204, 0.22);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 body.light-mode .about-tab {
-    color: var(--text-main);
+    color: #475569;
 }
 
 body.light-mode .about-tab.active {
     background: var(--primary);
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(0, 153, 204, 0.25);
+    box-shadow: 0 4px 18px rgba(0, 153, 204, 0.35);
 }
 
 body.light-mode .edu-item {
